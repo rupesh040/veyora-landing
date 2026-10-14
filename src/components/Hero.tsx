@@ -14,7 +14,7 @@ import content from "@/src/data";
 const hero = content.hero;
 
 const ACCENT = hero.theme?.accent || "#D8003F";
-const BG_COLOR = hero.theme?.background || "#FAF8F8";
+const BG_COLOR = hero.theme?.background || "#f8ebee";
 const HEADING_COLOR = hero.theme?.headingText || "#101522";
 const BODY_COLOR = hero.theme?.bodyText || "#20242c";
 const DOTS_COLOR = hero.theme?.dots || ACCENT;
@@ -473,7 +473,7 @@ export default function Hero() {
                 <div
                   className="pointer-events-none absolute bottom-0 left-0 right-0 z-10 h-28 sm:h-36 lg:hidden"
                   style={{
-                    background: `linear-gradient(to top, ${BG_COLOR} 0%, ${BG_COLOR} 10%, transparent 100%)`,
+                    background: `linear-gradient(to top, #FBEAEC 0%, #FBEAEC 10%, transparent 100%)`,
                   }}
                   aria-hidden="true"
                 />
