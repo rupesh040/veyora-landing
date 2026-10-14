@@ -177,9 +177,9 @@ function Content() {
           duration: 0.6,
           delay: 0.1,
         }}
-        className="inline-flex rounded-full border-2 border-[#d8003f] px-6 py-2 sm:px-7"
+        className="inline-flex rounded-full border-2 border-[#d8003f] px-4 py-2 sm:px-7"
       >
-        <span className="text-xs font-bold uppercase tracking-[0.08em] text-[#d8003f] sm:text-sm">
+        <span className="text-[12px] font-bold uppercase tracking-[0.08em] text-[#d8003f] ">
           {badge}
         </span>
       </motion.div>
@@ -193,7 +193,7 @@ function Content() {
           delay: 0.2,
           ease: [0.22, 1, 0.36, 1],
         }}
-        className="mt-6 max-w-[800px] text-[clamp(2.29rem,5vw,5.14rem)] font-bold leading-[1.02] tracking-[-0.05em] text-[#101522]"
+        className="mt-6 max-w-[800px] text-[56px] font-bold leading-[1.02] tracking-[-0.05em] text-[#101522]"
       >
         <span>{titleStart}</span>
         <span className="text-[#d8003f]">

@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "motion/react";
 import {
   ArrowRight,
@@ -80,9 +81,9 @@ export default function ContactSection() {
                 duration: 0.6,
                 delay: 0.2,
               }}
-              className="inline-flex self-start rounded-full border-2 border-[#d8003f] px-6 py-2 sm:px-7"
+              className="inline-flex self-start rounded-full border-2 border-[#d8003f] px-4 py-2 "
             >
-              <span className="text-xs font-bold uppercase tracking-[0.08em] text-[#d8003f] sm:text-sm">
+              <span className="text-[12px] font-bold uppercase tracking-[0.08em] text-[#d8003f] ">
                 {data.badge}
               </span>
             </motion.div>
@@ -101,7 +102,7 @@ export default function ContactSection() {
                 delay: 0.3,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              className="mt-12 max-w-[610px] text-[clamp(2.29rem,5vw,5.14rem)] font-bold leading-[0.98] tracking-[-0.055em]"
+              className="mt-6 text-[56px] font-bold leading-[0.98] tracking-[-0.055em]"
             >
               {data.headingStart}
               <span className="block text-[#e00040]">
@@ -173,14 +174,17 @@ export default function ContactSection() {
               transition={{
                 duration: 0.7,
               }}
-              className="mt-auto pt-16"
+              className="mt-10 sm:mt-12 lg:mt-auto pt-6"
             >
-              <div className="flex items-center gap-4 text-base text-white sm:text-lg">
-                <span className="h-4 w-4 rounded-full bg-[#d8003f] shadow-[0_0_20px_rgba(216,0,63,0.5)]" />
-
-                <span>
-                  {data.bookingText}
-                </span>
+              <div className="relative h-[220px] sm:h-[260px] md:h-[300px] lg:h-[280px] xl:h-[320px] w-full overflow-hidden rounded-2xl border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.4)]">
+                <Image
+                  src={data.image || "/cta/cta-collaboration.webp"}
+                  alt={data.imageAlt || "Creative Team Collaboration"}
+                  fill
+                  className="object-cover object-top transition-transform duration-700 hover:scale-105"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#08090b]/80 via-transparent to-transparent" />
               </div>
             </motion.div>
           </div>
@@ -216,7 +220,7 @@ export default function ContactSection() {
                 delay: 0.2,
               }}
             >
-              <h2 className="text-[clamp(2.29rem,5vw,5.14rem)] font-bold leading-[1.02] tracking-[-0.05em] text-[#0d0f13]">
+              <h2 className="text-[56px] font-bold leading-[1.02] tracking-[-0.05em] text-[#0d0f13]">
                 {data.formHeadingStart}
                 <span className="block">
                   {data.formHeadingHighlight}

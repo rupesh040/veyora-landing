@@ -36,9 +36,9 @@ export default function Services() {
                 duration: 0.6,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              className="mb-6 inline-flex rounded-full border-2 border-[#d8003f] px-6 py-2 sm:mb-7 sm:px-7"
+              className="mb-6 inline-flex rounded-full border-2 border-[#d8003f] px-4 py-2 "
             >
-              <span className="text-xs font-bold uppercase tracking-[0.08em] text-[#d8003f] sm:text-sm">
+              <span className="text-[12px] font-bold uppercase tracking-[0.08em] text-[#d8003f] ">
                 {data.badge}
               </span>
             </motion.div>
@@ -52,7 +52,7 @@ export default function Services() {
                 delay: 0.1,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              className="max-w-[850px] text-[clamp(2.29rem,5vw,5.14rem)] font-bold leading-[1.02] tracking-[-0.045em] text-[#101522]"
+              className="max-w-[850px] text-[56px] font-bold leading-[1.02] tracking-[-0.045em] text-[#101522]"
             >
               {data.headingStart}
               <span className="text-[#d8003f]">{data.headingHighlight}</span>

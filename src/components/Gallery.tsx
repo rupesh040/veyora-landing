@@ -242,7 +242,7 @@ function GalleryHeader({ data }: { data: any }) {
                       whileInView={{ opacity: 1, scale: 1 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                      className="inline-flex rounded-full border-2 border-[#d8003f] px-6 py-2 sm:px-7"
+                      className="inline-flex rounded-full border-2 border-[#d8003f] px-6 py-2 "
                     >
                       <span className="text-xs font-bold uppercase tracking-[0.08em] text-[#d8003f] sm:text-sm">
                         {data.badge}
@@ -263,7 +263,7 @@ function GalleryHeader({ data }: { data: any }) {
             delay: 0.18,
             ease: [0.22, 1, 0.36, 1],
           }}
-          className="mt-3 max-w-[1000px] text-[clamp(1.94rem,4.5vw,4.14rem)] font-bold leading-[1.02] tracking-[-0.05em] text-[#101522]"
+          className="mt-3 max-w-[1000px] text-[56px] font-bold leading-[1.02] tracking-[-0.05em] text-[#101522]"
         >
           {data.headingStart}{" "}
           <span className="text-[#c9003b]">

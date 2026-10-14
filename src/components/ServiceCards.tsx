@@ -32,7 +32,7 @@ export default function ServiceCards() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-              className="mt-5 text-[clamp(2.29rem,5vw,5.14rem)] font-bold leading-[1.02] tracking-[-0.05em] text-[#101522]"
+              className="mt-5 text-[56px] font-bold leading-[1.02] tracking-[-0.05em] text-[#101522]"
             >
               {data.cardHeadingStart}{" "}
               <span className="text-[#d8003f]">{data.cardHeadingHighlight}</span>

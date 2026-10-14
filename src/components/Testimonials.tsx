@@ -244,7 +244,7 @@ function Header({
         </span>
       </div>
 
-      <h2 className="mx-auto mt-4 max-w-[1100px] text-[clamp(2.29rem,5vw,5.14rem)] font-bold leading-[1.04] tracking-[-0.045em] text-[#101522] sm:mt-6">
+      <h2 className="mx-auto mt-4 max-w-[1100px] text-[56px] font-bold leading-[1.04] tracking-[-0.045em] text-[#101522] sm:mt-6">
         {data.heading.line1}{" "}
         <span className="text-[#d8003f]">{data.heading.highlight}</span>
       </h2>

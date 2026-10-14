@@ -1262,6 +1262,8 @@
               }
             ],
             "bookingText": "Now booking projects for Q4 2026",
+            "image": "/cta/cta-collaboration.jpg",
+            "imageAlt": "Creative Team Collaboration",
             "formHeadingStart": "Tell Us About Your\n",
             "formHeadingHighlight": "Project",
             "formDescription": "A few details are enough to get the conversation started.",

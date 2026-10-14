@@ -138,7 +138,7 @@ export default function WhyVeyora() {
             </span>
           </div>
 
-          <h2 className="mt-6 max-w-[760px] text-[clamp(2.29rem,5vw,5.14rem)] font-bold leading-[1] tracking-[-0.04em] text-[#10151f]">
+          <h2 className="mt-6 max-w-[760px] text-[56px] font-bold leading-[1] tracking-[-0.04em] text-[#10151f]">
             {whyData.heading.line1}
             <br />
             {whyData.heading.line2}{" "}

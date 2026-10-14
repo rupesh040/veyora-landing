@@ -66,7 +66,7 @@ function ServiceIntroduction({ data }: { data: any }) {
         }}
       >
         <div className="inline-flex rounded-full border-2 border-[#d8003f] px-6 py-2 sm:px-7">
-          <span className="text-xs font-bold uppercase tracking-[0.08em] text-[#d8003f] sm:text-sm">
+          <span className="text-[12px] font-bold uppercase tracking-[0.08em] text-[#d8003f] ">
             {data.badge}
           </span>
         </div>
@@ -85,7 +85,7 @@ function ServiceIntroduction({ data }: { data: any }) {
             delay: 0.12,
             ease: [0.22, 1, 0.36, 1],
           }}
-          className="mt-5 text-[clamp(2.29rem,5vw,5.14rem)] font-bold leading-[1.05] tracking-[-0.045em] text-[#10234a]"
+          className="mt-5 text-[56px] font-bold leading-[1.05] tracking-[-0.045em] text-[#10234a]"
         >
           {data.headingStart}
           <span className="block text-[#d8003f]">

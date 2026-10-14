@@ -184,9 +184,9 @@ function Header({
             duration: 0.6,
             ease: [0.22, 1, 0.36, 1],
           }}
-          className="inline-flex rounded-full border-2 border-[#d8003f] px-6 py-2 sm:px-7"
+          className="inline-flex rounded-full border-2 border-[#d8003f] px-6 py-2 "
         >
-          <span className="text-xs font-bold uppercase tracking-[0.08em] text-[#d8003f] sm:text-sm">
+          <span className="text-[14px] font-bold uppercase tracking-[0.08em] text-[#d8003f]">
             {data.badge}
           </span>
         </motion.div>
@@ -205,7 +205,7 @@ function Header({
             delay: 0.15,
             ease: [0.22, 1, 0.36, 1],
           }}
-          className="mt-5 max-w-[900px] text-[clamp(2.29rem,5vw,5.14rem)] font-bold leading-[1.02] tracking-[-0.05em] text-[#101522]"
+          className="mt-5 max-w-[900px] text-[56px] font-bold leading-[1.02] tracking-[-0.05em] text-[#101522]"
         >
           {data.headingStart}{" "}
           <span className="text-[#d8003f]">

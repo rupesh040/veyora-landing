@@ -97,7 +97,7 @@ function Header() {
           delay: 0.2,
           ease: [0.22, 1, 0.36, 1],
         }}
-        className="mt-6 text-[clamp(2.29rem,5vw,5.14rem)] font-bold leading-[1.03] tracking-[-0.05em] text-[#101522]"
+        className="mt-6 text-[56px] font-bold leading-[1.03] tracking-[-0.05em] text-[#101522]"
       >
         {coreData.heading.line1}
         <br />

@@ -517,7 +517,7 @@ export default function Hero() {
                 ease: [0.22, 1, 0.36, 1],
               }}
               style={{ color: HEADING_COLOR }}
-              className="text-[clamp(2.29rem,5vw,5.14rem)] font-bold leading-[1] tracking-[-0.045em]"
+              className="text-[60px] font-bold leading-[1.02] tracking-[-0.045em]"
             >
               <span className="block">{hero.heading.line1}</span>
               <span className="mt-1 block sm:mt-2">{hero.heading.line2}</span>

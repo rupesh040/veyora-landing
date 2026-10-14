@@ -166,7 +166,7 @@ function AboutContent() {
           duration: 0.8,
           delay: 0.1,
         }}
-        className="text-[clamp(2.29rem,5vw,5.14rem)] font-bold leading-[1] tracking-[-0.045em]"
+        className="text-[56px] font-bold leading-[1] tracking-[-0.045em]"
       >
         <span>{titleStart}</span>
         <span className="text-[#d8003f]">{titleHighlight}</span>
