@@ -66,8 +66,8 @@
             },
             "description": "Strategy, identity and digital experiences built to make your brand impossible to ignore.",
             "cta": {
-              "label": "Explore Services",
-              "href": "#services"
+              "label": "Contact Us",
+              "href": "#contact"
             },
             "person": {
               "image": "/hero-person.webp",
@@ -90,31 +90,24 @@
           "VeyoraAboutSection1": {
             "images": {
               "main": "/about/about-1.webp",
-              "top": "/about/about-2.webp",
-              "bottom": "/about/about-3.webp"
+              "small1": "/about/about-6.webp",
+              "small2": "/about/about-4.webp",
+              "small3": "/about/about-7.webp"
             },
-            "badge": "ABOUT VEYORA",
-            "titleStart": "We Shape Brands\nThat ",
-            "titleHighlight": "Move People",
-            "description": "We blend strategy, design, and storytelling to build bold identities that connect, inspire, and grow.",
-            "features": [
-              {
-                "title": "Brand Strategy",
-                "icon": "Database"
-              },
-              {
-                "title": "Creative Direction",
-                "icon": "ShieldCheck"
-              }
+            "badge": "About Veyora",
+            "titleStart": "We Turn Bold Ideas Into ",
+            "titleHighlight": "Brands That Matter",
+            "description": "Veyora is an independent creative agency blending strategy, design, and storytelling to create brands people choose and remember.",
+            "points": [
+              "Strategy rooted in real insight",
+              "Distinctive design with purpose",
+              "A collaborative, transparent process"
             ],
-            "stats": {
-              "target": 8,
-              "suffix": "+",
-              "label": "Years of Creative Impact"
-            },
-            "cta": {
-              "text": "Explore Services",
-              "link": "#services"
+            "testimonial": {
+              "quote": "Veyora gave our vision clarity, confidence, and a brand we're proud to lead with.",
+              "authorName": "Maya Chen",
+              "authorTitle": "Founder, North & Co.",
+              "authorImage": "/testimonials/maya.webp"
             }
           }
         }
