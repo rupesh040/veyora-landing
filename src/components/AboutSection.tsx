@@ -16,7 +16,7 @@ const iconMap: Record<string, any> = {
 
 export default function AboutSection() {
   return (
-    <section className="relative w-full overflow-hidden bg-[#faf9f7] px-5 py-4 sm:px-8 sm:py-6 md:px-10 md:py-8 lg:px-12 lg:py-10 xl:px-16">
+    <section id="about" className="relative w-full scroll-mt-20 overflow-hidden bg-[#faf9f7] px-5 py-8 sm:px-8 sm:py-10 md:px-10 md:py-12 lg:px-12 lg:py-16 xl:px-16">
       <div className="relative z-10 mx-auto grid max-w-[1500px] grid-cols-1 items-start gap-12 lg:grid-cols-[54%_46%] lg:gap-8 xl:gap-12">
         <PinterestGallery />
         <AboutContent />
@@ -39,7 +39,7 @@ function PinterestGallery() {
         className="pointer-events-none absolute left-1/2 top-1/2 z-0 -translate-x-1/2 -translate-y-1/2 select-none"
         aria-hidden="true"
       >
-        <span className="block select-none font-sans text-[220px] font-black leading-none tracking-tighter text-[#d8003f]/[0.06] sm:text-[360px] md:text-[440px] lg:text-[560px]">
+        <span className="block select-none font-sans text-[220px] font-black leading-none tracking-tighter text-[#2563eb]/[0.06] sm:text-[360px] md:text-[440px] lg:text-[560px]">
           V
         </span>
       </motion.div>
@@ -151,14 +151,14 @@ function AboutContent() {
         transition={{
           duration: 0.6,
         }}
-        className="mb-6 inline-flex rounded-full border-2 border-[#d8003f] px-6 py-2 sm:mb-7 sm:px-7"
+        className="mb-6 inline-flex rounded-full border-2 border-[#2563eb] px-6 py-2 sm:mb-7 sm:px-7"
       >
-        <span className="text-xs font-bold uppercase tracking-[0.08em] text-[#d8003f] sm:text-sm">
+        <span className="text-xs font-bold uppercase tracking-[0.08em] text-[#2563eb] sm:text-sm">
           {badge}
         </span>
       </motion.div>
 
-      <motion.h1
+      <motion.h2
         initial={{ opacity: 0, y: 25 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -169,8 +169,8 @@ function AboutContent() {
         className="text-[56px] font-bold leading-[1] tracking-[-0.045em]"
       >
         <span>{titleStart}</span>
-        <span className="text-[#d8003f]">{titleHighlight}</span>
-      </motion.h1>
+        <span className="text-[#2563eb]">{titleHighlight}</span>
+      </motion.h2>
 
       <motion.p
         initial={{ opacity: 0, y: 20 }}
@@ -206,7 +206,7 @@ function AboutContent() {
                   <Icon
                     size={29}
                     strokeWidth={1.7}
-                    className="text-[#d8003f]"
+                    className="text-[#2563eb]"
                   />
                 </div>
 
@@ -237,7 +237,17 @@ function AboutContent() {
       >
         <Link
           href={cta.link}
-          className="group inline-flex items-center gap-6 rounded-md bg-[#d8003f] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_10px_30px_rgba(216,0,63,0.2)] transition-all duration-300 hover:-translate-y-1 hover:bg-[#c60039] hover:shadow-[0_15px_40px_rgba(216,0,63,0.3)] sm:gap-8 sm:px-9 sm:py-[17px] sm:text-base md:text-lg"
+          onClick={(e) => {
+            if (cta.link.startsWith("#")) {
+              e.preventDefault();
+              const el = document.getElementById(cta.link.slice(1));
+              if (el) {
+                el.scrollIntoView({ behavior: "smooth" });
+                window.history.pushState(null, "", cta.link);
+              }
+            }
+          }}
+          className="group inline-flex items-center gap-6 rounded-md bg-[#2563eb] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_10px_30px_rgba(37,99,235,0.2)] transition-all duration-300 hover:-translate-y-1 hover:bg-[#1d4ed8] hover:shadow-[0_15px_40px_rgba(37,99,235,0.3)] sm:gap-8 sm:px-9 sm:py-[17px] sm:text-base md:text-lg"
         >
           <span>{cta.text}</span>
 
@@ -319,7 +329,7 @@ function AnimatedCounter({
       }}
       className="flex items-center gap-4"
     >
-      <span className="min-w-[95px] text-[clamp(3rem,6vw,5rem)] font-bold leading-none tracking-[-0.05em] text-[#d8003f] sm:min-w-[115px]">
+      <span className="min-w-[95px] text-[clamp(3rem,6vw,5rem)] font-bold leading-none tracking-[-0.05em] text-[#2563eb] sm:min-w-[115px]">
         {formattedCount}
         {suffix}
       </span>
@@ -360,7 +370,7 @@ function DotPattern({
             cx={column * gap + gap / 2}
             cy={row * gap + gap / 2}
             r={r}
-            fill="#d8003f"
+            fill="#2563eb"
             opacity={0.18 + ((row + column) % 3) * 0.05}
           />
         );

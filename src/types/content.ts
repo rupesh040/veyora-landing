@@ -89,66 +89,6 @@ export interface FooterData {
   };
 }
 
-export interface WhyVeyoraTab {
-  image: string;
-  points: string[];
-}
-
-export interface WhyVeyoraMetric {
-  label: string;
-  percentage: number;
-}
-
-export interface WhyVeyoraReason {
-  number: string;
-  title: string;
-  description: string;
-}
-
-export interface WhyVeyoraData {
-  badge: string;
-  heading: {
-    line1: string;
-    line2: string;
-    highlight: string;
-  };
-  description: string;
-  tabs: Record<string, WhyVeyoraTab>;
-  metrics: WhyVeyoraMetric[];
-  card: {
-    logos: {
-      backdrop: string;
-      backdropAlt: string;
-      primary: string;
-      primaryAlt: string;
-    };
-    reasons: WhyVeyoraReason[];
-    cta: {
-      label: string;
-      href: string;
-    };
-  };
-}
-
-export interface CoreFeatureItem {
-  title: string;
-  description: string;
-  icon?: string;
-  iconSvg?: string;
-}
-
-export interface CoreFeaturesData {
-  badge: string;
-  heading: {
-    line1: string;
-    line2: string;
-    highlight: string;
-  };
-  description: string;
-  centerImage: string;
-  features: CoreFeatureItem[];
-}
-
 export interface TestimonialItem {
   id: number;
   quote: string;
@@ -195,11 +135,7 @@ export interface OurTeamData {
 export interface ContentData {
   navbar: NavbarData;
   hero: HeroData;
-  whyVeyora?: WhyVeyoraData;
-  coreFeatures?: CoreFeaturesData;
   testimonials?: TestimonialsData;
   ourTeam?: OurTeamData;
   footer: FooterData;
 }
-
-

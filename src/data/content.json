@@ -1,76 +1,42 @@
 {
   "Veyora": {
-    "templateComponents": {
-      "template-1": {
-        "shared": {
-          "Header": "VeyoraHeader1",
-          "Footer": "VeyoraFooter1"
-        },
-        "pages": {
-          "home": {
-            "components": [
-              {
-                "key": "Banner",
-                "component": "VeyoraBanner1"
-              },
-              {
-                "key": "WhyChooseUs",
-                "component": "VeyoraWhyChooseUs1"
-              },
-              {
-                "key": "CoreFeatures",
-                "component": "VeyoraCoreFeatures1"
-              },
-              {
-                "key": "Testimonial",
-                "component": "VeyoraTestimonial1"
-              },
-              {
-                "key": "Team",
-                "component": "VeyoraTeam1"
-              }
-            ]
-          }
-        }
-      }
-    },
     "sections": {
       "Header": {
         "variants": {
           "VeyoraHeader1": {
             "logo": {
-              "image": "/logo/v-white-logos.webp",
+              "image": "/logo/v-blue-logo.webp",
               "alt": "VEYORA"
             },
             "navigation": [
               {
                 "label": "Home",
-                "href": "/"
+                "href": "#hero"
               },
               {
                 "label": "About",
-                "href": "/about"
+                "href": "#about"
               },
               {
                 "label": "Services",
-                "href": "/services"
+                "href": "#services"
               },
               {
-                "label": "Gallery",
-                "href": "/gallery"
+                "label": "Process",
+                "href": "#process"
               },
               {
-                "label": "Blog",
-                "href": "/blog"
+                "label": "Work",
+                "href": "#gallery"
               },
               {
-                "label": "Contact",
-                "href": "/contact"
+                "label": "Team",
+                "href": "#team"
               }
             ],
             "cta": {
-              "label": "Let's Talk",
-              "href": "/contact"
+              "label": "Contact",
+              "href": "#contact"
             },
             "mobile": {
               "menuLabel": "Menu",
@@ -80,7 +46,7 @@
               "background": "#202126",
               "text": "#FFFFFF",
               "mutedText": "#E5E5E5",
-              "accent": "#D8003F",
+              "accent": "#2563EB",
               "ctaText": "#FFFFFF"
             }
           }
@@ -91,7 +57,7 @@
           "VeyoraBanner1": {
             "brandTag": "Creative Brand Agency",
             "logo": {
-              "image": "/logo/v-logo.webp",
+              "image": "/logo/v-blue-logo.webp",
               "alt": "Veyora"
             },
             "heading": {
@@ -100,197 +66,224 @@
             },
             "description": "Strategy, identity and digital experiences built to make your brand impossible to ignore.",
             "cta": {
-              "label": "Start a Project",
-              "href": "/contact"
+              "label": "Explore Services",
+              "href": "#services"
             },
             "person": {
               "image": "/hero-person.webp",
               "alt": "Creative professional at Veyora agency"
             },
             "theme": {
-              "background": "#FAF8F8",
-              "accent": "#D8003F",
-              "circle": "#FBEAEC",
-              "triangle": "#FBEAEC",
-              "dots": "#F2B8C2",
+              "background": "#F8FAFC",
+              "accent": "#2563EB",
+              "circle": "#EFF6FF",
+              "triangle": "#EFF6FF",
+              "dots": "#93C5FD",
               "headingText": "#161925",
               "bodyText": "#4B5563"
             }
           }
         }
       },
-      "WhyChooseUs": {
+      "AboutSection": {
         "variants": {
-          "VeyoraWhyChooseUs1": {
-            "badge": "Why Veyora",
-            "heading": {
-              "line1": "Why Ambitious",
-              "line2": "Brands",
-              "highlight": "Choose Us"
+          "VeyoraAboutSection1": {
+            "images": {
+              "main": "/about/about-1.webp",
+              "top": "/about/about-2.webp",
+              "bottom": "/about/about-3.webp"
             },
-            "description": "We pair sharp strategy with fearless creativity to build brands that lead, connect, and last.",
-            "tabs": {
-              "Clarity": {
-                "image": "/about/about-3.webp",
-                "points": [
-                  "Strategy before aesthetics",
-                  "Ideas built around your audience",
-                  "Clear thinking at every stage",
-                  "A team that works as yours"
-                ]
-              },
-              "Creativity": {
-                "image": "/about/about-1.webp",
-                "points": [
-                  "Distinctive ideas with purpose",
-                  "Creative systems built to scale",
-                  "Visuals that make brands memorable",
-                  "Design that creates connection"
-                ]
-              },
-              "Partnership": {
-                "image": "/about/about-2.webp",
-                "points": [
-                  "Close collaboration from day one",
-                  "Transparent communication throughout",
-                  "Flexible process built around you",
-                  "A team invested in your success"
-                ]
-              }
-            },
-            "metrics": [
+            "badge": "ABOUT VEYORA",
+            "titleStart": "We Shape Brands\nThat ",
+            "titleHighlight": "Move People",
+            "description": "We blend strategy, design, and storytelling to build bold identities that connect, inspire, and grow.",
+            "features": [
               {
-                "label": "Client Satisfaction",
-                "percentage": 96
+                "title": "Brand Strategy",
+                "icon": "Database"
               },
               {
-                "label": "Projects Delivered On Time",
-                "percentage": 92
+                "title": "Creative Direction",
+                "icon": "ShieldCheck"
               }
             ],
-            "card": {
-              "reasons": [
-                {
-                  "number": "01",
-                  "title": "Strategic by Design",
-                  "description": "Every creative decision supports a real business goal."
-                },
-                {
-                  "number": "02",
-                  "title": "Senior Creative Team",
-                  "description": "Experienced thinkers stay close from start to finish."
-                },
-                {
-                  "number": "03",
-                  "title": "Built to Make Impact",
-                  "description": "Distinctive work designed for relevance and growth."
-                }
-              ],
-              "cta": {
-                "label": "Start a Project",
-                "href": "/contact"
-              },
-              "logos": {
-                "backdrop": "/logo/v-logo.webp",
-                "backdropAlt": "Veyora backdrop",
-                "primary": "/logo/v-logo.webp",
-                "primaryAlt": "Veyora primary"
-              }
+            "stats": {
+              "target": 8,
+              "suffix": "+",
+              "label": "Years of Creative Impact"
+            },
+            "cta": {
+              "text": "Explore Services",
+              "link": "#services"
             }
           }
         }
       },
-      "CoreFeatures": {
+      "Services": {
         "variants": {
-          "VeyoraCoreFeatures1": {
-            "badge": "Core Features",
-            "heading": {
-              "line1": "Everything Your Brand",
-              "line2": "Needs to",
-              "highlight": "Stand Out"
+          "VeyoraServices1": {
+            "badge": "WHAT WE DO",
+            "headingStart": "Creative Services Built for\n",
+            "headingHighlight": "Bold Brands",
+            "button": {
+              "text": "View Our Work",
+              "link": "#gallery"
             },
-            "description": "One focused team, connecting strategy, identity, and digital experience.",
-            "centerImage": "/about/about-2.webp",
-            "features": [
+            "cardBadge": "Services Detail",
+            "cardHeadingStart": "Services ",
+            "cardHeadingHighlight": "Detail",
+            "cardDescription": "Explore the specialized services we offer to help your brand grow, engage audiences, and build lasting impressions.",
+            "cardButtonText": "View Details",
+            "images": {
+              "main": "/about/about-1.webp",
+              "secondary": "/service.webp"
+            },
+            "services": [
               {
-                "title": "Brand Positioning",
-                "description": "Own a clear and meaningful place in the market.",
+                "title": "Brand Strategy",
+                "description": "Positioning, purpose, and a clear path to growth.",
                 "icon": "Target",
-                "iconSvg": "<path d=\"M12 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0\"/><path d=\"M12 7a5 5 0 1 0 5 5\"/><path d=\"M13.004 3.055a9 9 0 1 0 7.941 7.945\"/><path d=\"M15 6v3h3l3 -3h-3v-3z\"/><path d=\"M15 9l-3 3\"/>"
+                "iconSvg": "<path d=\"M12 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0\"/><path d=\"M12 7a5 5 0 1 0 5 5\"/><path d=\"M13.004 3.055a9 9 0 1 0 7.941 7.945\"/><path d=\"M15 6v3h3l3 -3h-3v-3z\"/><path d=\"M15 9l-3 3\"/>",
+                "image": "/about/about-2.webp",
+                "link": "/services/brand-strategy"
               },
               {
-                "title": "Identity Systems",
-                "description": "Build a distinctive look made to stay consistent.",
-                "icon": "Gem"
+                "title": "Visual Identity",
+                "description": "Creating intuitive digital experiences.",
+                "icon": "Gem",
+                "image": "/about/about-3.webp",
+                "link": "/services/ui-ux"
               },
               {
-                "title": "Audience Insight",
-                "description": "Turn real customer understanding into direction.",
-                "icon": "User"
+                "title": "Digital Experience",
+                "description": "Web experiences that feel intuitive and alive.",
+                "icon": "PanelsTopLeft",
+                "iconSvg": "<path d=\"M2 12l6-8 4 8 4-8 6 8-6 8-4-8-4 8z\"/>",
+                "image": "/about/about-1.webp",
+                "link": "/services/marketing"
               },
               {
-                "title": "Digital Design",
-                "description": "Create intuitive experiences across every screen.",
-                "icon": "LayoutTemplate"
+                "title": "Campaign Design",
+                "description": "Crafting distinctive visual identities.",
+                "icon": "Megaphone",
+                "image": "/about/about-2.webp",
+                "link": "/services/identity"
               },
               {
-                "title": "Content Direction",
-                "description": "Shape a voice that people recognize and trust.",
-                "icon": "PenLine"
+                "title": "Content Strategy",
+                "description": "Compelling narratives that connect and convert.",
+                "icon": "Target",
+                "image": "/about/about-3.webp",
+                "link": "/services/content-strategy"
               },
               {
-                "title": "Scalable Toolkits",
-                "description": "Give your team practical assets built for growth.",
-                "icon": "Briefcase"
+                "title": "Motion & Animation",
+                "description": "Bringing brands to life through dynamic visuals.",
+                "icon": "PanelsTopLeft",
+                "image": "/about/about-1.webp",
+                "link": "/services/motion"
+              },
+              {
+                "title": "SEO & Growth",
+                "description": "Organic strategies that drive visibility and leads.",
+                "icon": "Megaphone",
+                "image": "/about/about-2.webp",
+                "link": "/services/seo"
+              },
+              {
+                "title": "E-Commerce Design",
+                "description": "Storefronts built for conversion and scale.",
+                "icon": "Gem",
+                "image": "/about/about-3.webp",
+                "link": "/services/ecommerce"
               }
-            ]
+            ],
+            "videoUrl": "https://www.youtube.com/embed/LXb3EKWsInQ?autoplay=1"
           }
         }
       },
-      "Testimonial": {
+      "ProcessSection": {
         "variants": {
-          "VeyoraTestimonial1": {
-            "badge": "Client Stories",
-            "heading": {
-              "line1": "Trusted by Brands",
-              "highlight": "Ready to Grow"
-            },
-            "description": "Real partnerships. Clear thinking. Work that creates lasting momentum.",
-            "items": [
+          "VeyoraProcess1": {
+            "badge": "How it work",
+            "headingStart": "A Clear Process From First\nConversation to",
+            "headingHighlight": "Final Launch",
+            "description": "Simple steps, open collaboration, and no surprises along the way.",
+            "steps": [
               {
-                "id": 1,
-                "quote": "Veyora gave us the clarity and confidence to show up as the brand we always wanted to be.",
-                "name": "Maya Kapoor",
-                "role": "Founder, Noura",
-                "image": "/testimonials/maya.webp"
+                "number": "01",
+                "title": "Discover",
+                "description": "We dive deep to understand your goals, audience, and market.",
+                "icon": "Search"
               },
               {
-                "id": 2,
-                "quote": "They turned complex ideas into a bold identity our team and customers connected with instantly.",
-                "name": "Daniel Brooks",
-                "role": "CEO, Northline",
-                "image": "/testimonials/daniel.webp"
+                "number": "02",
+                "title": "Strategy",
+                "description": "Mapping out a clear, actionable plan for success.",
+                "icon": "Target"
               },
               {
-                "id": 3,
-                "quote": "Strategic, collaborative, and genuinely invested, the result exceeded every expectation.",
-                "name": "Sofia Mendes",
-                "role": "Marketing Director, Aster",
-                "image": "/testimonials/sofia.webp"
+                "number": "03",
+                "title": "Design",
+                "description": "Creating beautiful, user-centric experiences.",
+                "icon": "Layers3"
               },
               {
-                "id": 4,
-                "quote": "The team understood our vision quickly and transformed it into something much stronger than we imagined.",
-                "name": "Arjun Mehta",
-                "role": "Founder, Forma",
-                "image": "/testimonials/arjun.webp"
+                "number": "04",
+                "title": "Launch",
+                "description": "Bringing your vision to life and beyond.",
+                "icon": "Send"
+              }
+            ],
+            "ctaText": "Have a project in mind?",
+            "ctaButtonText": "Start the Process",
+            "ctaButtonLink": "/contact"
+          }
+        }
+      },
+      "Gallery": {
+        "variants": {
+          "VeyoraGallery1": {
+            "badge": "Gallery",
+            "headingStart": "A Gallery of Ideas ",
+            "headingHighlight": "Brought to Life",
+            "description": "Explore the moments, details, and creative work behind every project.",
+            "galleryItems": [
+              {
+                "title": "Brand Identity",
+                "image": "/about/about-1.webp"
               },
               {
-                "id": 5,
-                "quote": "From strategy to execution, every detail felt intentional and connected to our business goals.",
-                "name": "Olivia Carter",
-                "role": "Brand Director, Luma",
-                "image": "/testimonials/olivia.webp"
+                "title": "Packaging Design",
+                "image": "/about/about-2.webp"
+              },
+              {
+                "title": "Digital Experience",
+                "image": "/about/about-3.webp"
+              },
+              {
+                "title": "Campaign Creative",
+                "image": "/about/about-1.webp"
+              },
+              {
+                "title": "Brand Guidelines",
+                "image": "/about/about-2.webp"
+              },
+              {
+                "title": "Creative Direction",
+                "image": "/about/about-3.webp"
+              },
+              {
+                "title": "Social Campaign",
+                "image": "/about/about-1.webp"
+              },
+              {
+                "title": "Environmental Design",
+                "image": "/about/about-2.webp"
+              },
+              {
+                "title": "Editorial Design",
+                "image": "/about/about-3.webp"
               }
             ]
           }
@@ -377,866 +370,57 @@
             ],
             "theme": {
               "background": "#ffffff",
-              "accent": "#d8003f"
+              "accent": "#2563eb"
             }
           }
         }
       },
-      "Footer": {
+      "Testimonial": {
         "variants": {
-          "VeyoraFooter1": {
-            "brand": {
-              "logo": "/logo/v-white-logos.webp",
-              "alt": "VEYORA",
-              "href": "/",
-              "tagline": "We build bold brand identities and digital experiences that move people and grow businesses."
+          "VeyoraTestimonial1": {
+            "badge": "Client Stories",
+            "heading": {
+              "line1": "Trusted by Brands",
+              "highlight": "Ready to Grow"
             },
-            "contact": {
-              "email": "info@xyz.com",
-              "phone": "+1 000-000-000",
-              "phoneTel": "+1 000-000-000"
-            },
-            "columns": [
+            "description": "Real partnerships. Clear thinking. Work that creates lasting momentum.",
+            "items": [
               {
-                "title": "Explore",
-                "links": [
-                  {
-                    "label": "Home",
-                    "href": "/"
-                  },
-                  {
-                    "label": "About",
-                    "href": "/about"
-                  },
-                  {
-                    "label": "Services",
-                    "href": "/services"
-                  },
-                  {
-                    "label": "Gallery",
-                    "href": "/gallery"
-                  },
-                  {
-                    "label": "Blog",
-                    "href": "/blog"
-                  },
-                  {
-                    "label": "Contact",
-                    "href": "/contact"
-                  }
-                ]
+                "id": 1,
+                "quote": "Veyora gave us the clarity and confidence to show up as the brand we always wanted to be.",
+                "name": "Maya Kapoor",
+                "role": "Founder, Noura",
+                "image": "/testimonials/maya.webp"
               },
               {
-                "title": "Services",
-                "links": [
-                  {
-                    "label": "Brand Strategy",
-                    "href": "/services/brand-strategy"
-                  },
-                  {
-                    "label": "Visual Identity",
-                    "href": "/services/visual-identity"
-                  },
-                  {
-                    "label": "Digital Experience",
-                    "href": "/services/digital-experience"
-                  },
-                  {
-                    "label": "Campaign Design",
-                    "href": "/services/campaign-design"
-                  }
-                ]
+                "id": 2,
+                "quote": "They turned complex ideas into a bold identity our team and customers connected with instantly.",
+                "name": "Daniel Brooks",
+                "role": "CEO, Northline",
+                "image": "/testimonials/daniel.webp"
               },
               {
-                "title": "Follow",
-                "links": [
-                  {
-                    "label": "Instagram",
-                    "href": "https://instagram.com"
-                  },
-                  {
-                    "label": "LinkedIn",
-                    "href": "https://linkedin.com"
-                  },
-                  {
-                    "label": "Behance",
-                    "href": "https://behance.net"
-                  },
-                  {
-                    "label": "Dribbble",
-                    "href": "https://dribbble.com"
-                  }
-                ]
-              }
-            ],
-            "legal": {
-              "copyright": "© 2026 All Rights Reserved. Powered by Lestow",
-              "links": [
-                {
-                  "label": "Terms of Use",
-                  "href": "/terms"
-                },
-                {
-                  "label": "Privacy Policy",
-                  "href": "/privacy"
-                }
-              ]
-            },
-            "theme": {
-              "background": "#08090d",
-              "accent": "#d8003f"
-            }
-          }
-        }
-      },
-      "BlogDetail": {
-        "variants": {
-          "VeyoraBlogDetail1": {
-            "categories": [
-              {
-                "name": "HR & Workforce",
-                "link": "/blog/stronger-workforce"
+                "id": 3,
+                "quote": "Strategic, collaborative, and genuinely invested, the result exceeded every expectation.",
+                "name": "Sofia Mendes",
+                "role": "Marketing Director, Aster",
+                "image": "/testimonials/sofia.webp"
               },
               {
-                "name": "Leadership",
-                "link": "/blog/leadership-training"
+                "id": 4,
+                "quote": "The team understood our vision quickly and transformed it into something much stronger than we imagined.",
+                "name": "Arjun Mehta",
+                "role": "Founder, Forma",
+                "image": "/testimonials/arjun.webp"
               },
               {
-                "name": "Training & Development",
-                "link": "/blog/training-development"
-              },
-              {
-                "name": "Corporate Programs",
-                "link": "/blog/hr-business-growth"
-              },
-              {
-                "name": "Industry Insights",
-                "link": "/blog/industry-insights"
-              },
-              {
-                "name": "Workplace Culture",
-                "link": "/blog/positive-workplace"
-              },
-              {
-                "name": "Staff Management",
-                "link": "/blog/staff-management"
-              }
-            ],
-            "recentPosts": [
-              {
-                "id": "stronger-workforce",
-                "title": "How to Build a Stronger Workforce",
-                "date": "24 Aug 2025",
-                "image": "/blogs/blog-1.webp"
-              },
-              {
-                "id": "leadership-training",
-                "title": "The Importance of Leadership Training",
-                "date": "18 Aug 2025",
-                "image": "/blogs/blog-2.webp"
-              },
-              {
-                "id": "hr-business-growth",
-                "title": "HR Strategies for Business Growth",
-                "date": "12 Aug 2025",
-                "image": "/blogs/blog-3.webp"
-              },
-              {
-                "id": "positive-workplace",
-                "title": "Creating a Positive Workplace Culture",
-                "date": "05 Aug 2025",
-                "image": "/blogs/blog-1.webp"
-              }
-            ],
-            "sidebarCTA": {
-              "title": "Need Expert Guidance?",
-              "description": "Our team is here to help you with customized HR and staffing solutions.",
-              "buttonText": "Talk to Our Experts",
-              "buttonLink": "/contact"
-            },
-            "sidebarHeadings": {
-              "categories": "Categories",
-              "recentPosts": "Recent Posts"
-            },
-            "posts": {
-              "stronger-workforce": {
-                "header": {
-                  "image": "/blogs/blog-1.webp",
-                  "imageAlt": "How to Build a Stronger Workforce",
-                  "titleStart": "How to Build a Stronger Workforce ",
-                  "titleHighlight": "for a Successful Business",
-                  "description": "A strong workforce is the foundation of every successful organization. In today's competitive business environment, companies need the right people, the right skills, and the right strategies to stay ahead. Building a high-performing team not only improves productivity but also drives innovation and long-term growth.",
-                  "meta": [
-                    {
-                      "icon": "CalendarDays",
-                      "text": "24 August 2025"
-                    },
-                    {
-                      "icon": "Users",
-                      "text": "Admin"
-                    },
-                    {
-                      "icon": "FolderOpen",
-                      "text": "HR & Workforce"
-                    },
-                    {
-                      "icon": "Eye",
-                      "text": "356 Views"
-                    }
-                  ]
-                },
-                "articleSections": [
-                  {
-                    "number": "01",
-                    "title": "Understand Your Business Needs",
-                    "description": "The first step in building a stronger workforce is to clearly understand your business goals and workforce requirements. Identify the roles, skills, and competencies needed to achieve your objectives."
-                  },
-                  {
-                    "number": "02",
-                    "title": "Attract the Right Talent",
-                    "description": "Finding the right people can make a huge difference. Use a strategic hiring process, including clear job descriptions, targeted outreach, and thorough screening, to attract candidates who fit your culture and goals."
-                  },
-                  {
-                    "number": "03",
-                    "title": "Invest in Training & Development",
-                    "description": "Continuous learning helps employees stay updated with industry trends and improves their performance. Offer training programs, leadership development, and skill enhancement opportunities to help your team grow."
-                  },
-                  {
-                    "number": "04",
-                    "title": "Foster a Positive Work Culture",
-                    "description": "A supportive and inclusive work environment increases employee satisfaction and retention. Encourage open communication, recognize achievements, and create opportunities for collaboration."
-                  }
-                ],
-                "quote": {
-                  "text": "A strong workforce is not just about hiring people, but about empowering them to grow, perform, and succeed together.",
-                  "authorStart": "— Team ",
-                  "authorHighlight": "Veyora"
-                }
-              },
-              "leadership-training": {
-                "header": {
-                  "image": "/blogs/blog-2.webp",
-                  "imageAlt": "How to Build a Stronger Workforce",
-                  "titleStart": "The Importance of ",
-                  "titleHighlight": "Leadership Training",
-                  "description": "Effective leadership is the cornerstone of business success. Discover why training your leaders makes all the difference.",
-                  "meta": [
-                    {
-                      "icon": "CalendarDays",
-                      "text": "24 August 2025"
-                    },
-                    {
-                      "icon": "Users",
-                      "text": "Admin"
-                    },
-                    {
-                      "icon": "FolderOpen",
-                      "text": "HR & Workforce"
-                    },
-                    {
-                      "icon": "Eye",
-                      "text": "356 Views"
-                    }
-                  ]
-                },
-                "articleSections": [
-                  {
-                    "number": "01",
-                    "title": "Empower Decision Making",
-                    "description": "Leaders need the right tools and mindset to make tough decisions quickly."
-                  },
-                  {
-                    "number": "02",
-                    "title": "Boost Team Morale",
-                    "description": "A good leader inspires confidence and motivation in their team."
-                  }
-                ],
-                "quote": {
-                  "text": "Leadership is action, not position.",
-                  "authorStart": "— Donald ",
-                  "authorHighlight": "McGannon"
-                }
-              },
-              "hr-business-growth": {
-                "header": {
-                  "image": "/blogs/blog-3.webp",
-                  "imageAlt": "HR Strategies for Business Growth",
-                  "titleStart": "HR Strategies ",
-                  "titleHighlight": "for Business Growth",
-                  "description": "Strategic HR is the secret weapon for growing businesses. Learn how to scale your team while maintaining culture and efficiency.",
-                  "meta": [
-                    {
-                      "icon": "CalendarDays",
-                      "text": "10 Sept 2025"
-                    },
-                    {
-                      "icon": "Users",
-                      "text": "Admin"
-                    },
-                    {
-                      "icon": "FolderOpen",
-                      "text": "Insights"
-                    },
-                    {
-                      "icon": "Eye",
-                      "text": "420 Views"
-                    }
-                  ]
-                },
-                "articleSections": [
-                  {
-                    "number": "01",
-                    "title": "Align HR with Business Goals",
-                    "description": "Ensure your human resources strategy directly supports your company objectives."
-                  },
-                  {
-                    "number": "02",
-                    "title": "Scalable Processes",
-                    "description": "Implement systems that grow with your company, from onboarding to performance reviews."
-                  }
-                ],
-                "quote": {
-                  "text": "Human resources isn't a thing we do. It's the thing that runs our business.",
-                  "authorStart": "— Steve ",
-                  "authorHighlight": "Wynn"
-                }
-              },
-              "positive-workplace": {
-                "header": {
-                  "image": "/blogs/blog-1.webp",
-                  "imageAlt": "Creating a Positive Workplace Culture",
-                  "titleStart": "Creating a Positive ",
-                  "titleHighlight": "Workplace Culture",
-                  "description": "A thriving culture is not an accident. Discover the intentional steps to build a positive and productive environment.",
-                  "meta": [
-                    {
-                      "icon": "CalendarDays",
-                      "text": "10 Sept 2025"
-                    },
-                    {
-                      "icon": "Users",
-                      "text": "Admin"
-                    },
-                    {
-                      "icon": "FolderOpen",
-                      "text": "Insights"
-                    },
-                    {
-                      "icon": "Eye",
-                      "text": "420 Views"
-                    }
-                  ]
-                },
-                "articleSections": [
-                  {
-                    "number": "01",
-                    "title": "Lead by Example",
-                    "description": "Culture starts at the top. Leaders must embody the values they want to see."
-                  },
-                  {
-                    "number": "02",
-                    "title": "Encourage Open Feedback",
-                    "description": "Create safe spaces for employees to share their thoughts and ideas."
-                  }
-                ],
-                "quote": {
-                  "text": "Corporate culture matters. How management chooses to treat its people impacts everything.",
-                  "authorStart": "— Simon ",
-                  "authorHighlight": "Sinek"
-                }
-              },
-              "training-development": {
-                "header": {
-                  "image": "/blogs/blog-2.webp",
-                  "imageAlt": "Training & Development",
-                  "titleStart": "The Future of ",
-                  "titleHighlight": "Training & Development",
-                  "description": "Upskilling your workforce is no longer optional. Find out how to implement effective training programs that deliver ROI.",
-                  "meta": [
-                    {
-                      "icon": "CalendarDays",
-                      "text": "10 Sept 2025"
-                    },
-                    {
-                      "icon": "Users",
-                      "text": "Admin"
-                    },
-                    {
-                      "icon": "FolderOpen",
-                      "text": "Insights"
-                    },
-                    {
-                      "icon": "Eye",
-                      "text": "420 Views"
-                    }
-                  ]
-                },
-                "articleSections": [
-                  {
-                    "number": "01",
-                    "title": "Continuous Learning",
-                    "description": "Foster a culture where employees are always encouraged to learn and grow."
-                  },
-                  {
-                    "number": "02",
-                    "title": "Leveraging Technology",
-                    "description": "Use modern platforms to deliver targeted and engaging training."
-                  }
-                ],
-                "quote": {
-                  "text": "The only thing worse than training your employees and having them leave is not training them and having them stay.",
-                  "authorStart": "— Henry ",
-                  "authorHighlight": "Ford"
-                }
-              },
-              "industry-insights": {
-                "header": {
-                  "image": "/blogs/blog-3.webp",
-                  "imageAlt": "Industry Insights",
-                  "titleStart": "Navigating ",
-                  "titleHighlight": "Industry Insights",
-                  "description": "Stay ahead of the curve by understanding the latest trends and shifts in your industry landscape.",
-                  "meta": [
-                    {
-                      "icon": "CalendarDays",
-                      "text": "10 Sept 2025"
-                    },
-                    {
-                      "icon": "Users",
-                      "text": "Admin"
-                    },
-                    {
-                      "icon": "FolderOpen",
-                      "text": "Insights"
-                    },
-                    {
-                      "icon": "Eye",
-                      "text": "420 Views"
-                    }
-                  ]
-                },
-                "articleSections": [
-                  {
-                    "number": "01",
-                    "title": "Data-Driven Decisions",
-                    "description": "Utilize industry data to inform your strategic choices."
-                  },
-                  {
-                    "number": "02",
-                    "title": "Anticipating Change",
-                    "description": "Be proactive rather than reactive when market conditions shift."
-                  }
-                ],
-                "quote": {
-                  "text": "The goal is to turn data into information, and information into insight.",
-                  "authorStart": "— Carly ",
-                  "authorHighlight": "Fiorina"
-                }
-              },
-              "staff-management": {
-                "header": {
-                  "image": "/blogs/blog-1.webp",
-                  "imageAlt": "Staff Management",
-                  "titleStart": "Effective ",
-                  "titleHighlight": "Staff Management",
-                  "description": "Managing a team requires empathy, clarity, and consistency. Learn the best practices for modern staff management.",
-                  "meta": [
-                    {
-                      "icon": "CalendarDays",
-                      "text": "10 Sept 2025"
-                    },
-                    {
-                      "icon": "Users",
-                      "text": "Admin"
-                    },
-                    {
-                      "icon": "FolderOpen",
-                      "text": "Insights"
-                    },
-                    {
-                      "icon": "Eye",
-                      "text": "420 Views"
-                    }
-                  ]
-                },
-                "articleSections": [
-                  {
-                    "number": "01",
-                    "title": "Clear Communication",
-                    "description": "Ensure expectations and feedback are communicated clearly and regularly."
-                  },
-                  {
-                    "number": "02",
-                    "title": "Empower Your Team",
-                    "description": "Give your staff the autonomy they need to succeed and innovate."
-                  }
-                ],
-                "quote": {
-                  "text": "Management is doing things right; leadership is doing the right things.",
-                  "authorStart": "— Peter ",
-                  "authorHighlight": "Drucker"
-                }
-              }
-            }
-          }
-        }
-      },
-      "Gallery": {
-        "variants": {
-          "VeyoraGallery1": {
-            "badge": "Gallery",
-            "headingStart": "A Gallery of Ideas ",
-            "headingHighlight": "Brought to Life",
-            "description": "Explore the moments, details, and creative work behind every project.",
-            "galleryItems": [
-              {
-                "title": "Brand Identity",
-                "image": "/about/about-1.webp"
-              },
-              {
-                "title": "Packaging Design",
-                "image": "/about/about-2.webp"
-              },
-              {
-                "title": "Digital Experience",
-                "image": "/about/about-3.webp"
-              },
-              {
-                "title": "Campaign Creative",
-                "image": "/about/about-1.webp"
-              },
-              {
-                "title": "Brand Guidelines",
-                "image": "/about/about-2.webp"
-              },
-              {
-                "title": "Creative Direction",
-                "image": "/about/about-3.webp"
-              },
-              {
-                "title": "Social Campaign",
-                "image": "/about/about-1.webp"
-              },
-              {
-                "title": "Environmental Design",
-                "image": "/about/about-2.webp"
-              },
-              {
-                "title": "Editorial Design",
-                "image": "/about/about-3.webp"
+                "id": 5,
+                "quote": "From strategy to execution, every detail felt intentional and connected to our business goals.",
+                "name": "Olivia Carter",
+                "role": "Brand Director, Luma",
+                "image": "/testimonials/olivia.webp"
               }
             ]
-          }
-        }
-      },
-      "Insights": {
-        "variants": {
-          "VeyoraInsights1": {
-            "badge": "Insights & Ideas",
-            "headingStart": "Thinking Behind ",
-            "headingHighlight": "the Work",
-            "buttonText": "View All Insights",
-            "insights": [
-              {
-                "id": "stronger-workforce",
-                "category": "HR & Workforce",
-                "date": "24 Aug 2025",
-                "title": "How to Build a Stronger Workforce for a Successful Business",
-                "image": "/blogs/blog-1.webp"
-              },
-              {
-                "id": "leadership-training",
-                "category": "Leadership",
-                "date": "18 Aug 2025",
-                "title": "The Importance of Leadership Training",
-                "image": "/blogs/blog-2.webp"
-              },
-              {
-                "id": "hr-business-growth",
-                "category": "Corporate Programs",
-                "date": "12 Aug 2025",
-                "title": "HR Strategies for Business Growth",
-                "image": "/blogs/blog-3.webp"
-              },
-              {
-                "id": "positive-workplace",
-                "category": "Workplace Culture",
-                "date": "05 Aug 2025",
-                "title": "Creating a Positive Workplace Culture",
-                "image": "/blogs/blog-1.webp"
-              },
-              {
-                "id": "training-development",
-                "category": "Training & Development",
-                "date": "29 Jul 2025",
-                "title": "The Importance of Training & Development",
-                "image": "/blogs/blog-2.webp"
-              },
-              {
-                "id": "industry-insights",
-                "category": "Industry Insights",
-                "date": "22 Jul 2025",
-                "title": "Latest Industry Insights",
-                "image": "/blogs/blog-3.webp"
-              },
-              {
-                "id": "staff-management",
-                "category": "Staff Management",
-                "date": "15 Jul 2025",
-                "title": "Effective Staff Management",
-                "image": "/blogs/blog-1.webp"
-              }
-            ]
-          }
-        }
-      },
-      "OurApproach": {
-        "variants": {
-          "VeyoraOurApproach1": {
-            "approaches": {
-              "Discover": {
-                "description": "We uncover what makes your brand valuable, shape a clear direction, and turn that strategy into a distinctive experience built to grow.",
-                "points": [
-                  "Research that reveals opportunity",
-                  "A strategy your team can use",
-                  "Design grounded in purpose",
-                  "Clear support from start to launch"
-                ]
-              },
-              "Define": {
-                "description": "We define the ideas, positioning, and creative direction that give your brand a clear voice and a meaningful place in the market.",
-                "points": [
-                  "Clear positioning and direction",
-                  "A distinctive brand foundation",
-                  "Design systems built with purpose",
-                  "A focused path from idea to execution"
-                ]
-              },
-              "Deliver": {
-                "description": "We turn strategy into practical creative experiences that connect with people, support your team, and create lasting business value.",
-                "points": [
-                  "Creative work built for growth",
-                  "Digital experiences that connect",
-                  "Practical tools for your team",
-                  "Support from launch and beyond"
-                ]
-              }
-            },
-            "image": "/about/about-1.webp",
-            "imageAlt": "Veyora creative team working together",
-            "tag": "Our Approach",
-            "headingStart": "Your Strategic Partner",
-            "headingBr": "for ",
-            "headingHighlight": "Meaningful Growth",
-            "subHeading": "What you can expect from Veyora"
-          }
-        }
-      },
-      "Services": {
-        "variants": {
-          "VeyoraServices1": {
-            "badge": "WHAT WE DO",
-            "headingStart": "Creative Services Built for\n",
-            "headingHighlight": "Bold Brands",
-            "button": {
-              "text": "Explore All Services",
-              "link": "/services"
-            },
-            "cardBadge": "Services Detail",
-            "cardHeadingStart": "Services ",
-            "cardHeadingHighlight": "Detail",
-            "cardDescription": "Explore the specialized services we offer to help your brand grow, engage audiences, and build lasting impressions.",
-            "cardButtonText": "View Details",
-            "images": {
-              "main": "/about/about-1.webp",
-              "secondary": "/service.webp"
-            },
-            "services": [
-              {
-                "title": "Brand Strategy",
-                "description": "Positioning, purpose, and a clear path to growth.",
-                "icon": "Target",
-                "iconSvg": "<path d=\"M12 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0\"/><path d=\"M12 7a5 5 0 1 0 5 5\"/><path d=\"M13.004 3.055a9 9 0 1 0 7.941 7.945\"/><path d=\"M15 6v3h3l3 -3h-3v-3z\"/><path d=\"M15 9l-3 3\"/>",
-                "image": "/about/about-2.webp",
-                "link": "/services/brand-strategy"
-              },
-              {
-                "title": "Visual Identity",
-                "description": "Creating intuitive digital experiences.",
-                "icon": "Gem",
-                "image": "/about/about-3.webp",
-                "link": "/services/ui-ux"
-              },
-              {
-                "title": "Digital Experience",
-                "description": "Web experiences that feel intuitive and alive.",
-                "icon": "PanelsTopLeft",
-                "iconSvg": "<path d=\"M2 12l6-8 4 8 4-8 6 8-6 8-4-8-4 8z\"/>",
-                "image": "/about/about-1.webp",
-                "link": "/services/marketing"
-              },
-              {
-                "title": "Campaign Design",
-                "description": "Crafting distinctive visual identities.",
-                "icon": "Megaphone",
-                "image": "/about/about-2.webp",
-                "link": "/services/identity"
-              },
-              {
-                "title": "Content Strategy",
-                "description": "Compelling narratives that connect and convert.",
-                "icon": "Target",
-                "image": "/about/about-3.webp",
-                "link": "/services/content-strategy"
-              },
-              {
-                "title": "Motion & Animation",
-                "description": "Bringing brands to life through dynamic visuals.",
-                "icon": "PanelsTopLeft",
-                "image": "/about/about-1.webp",
-                "link": "/services/motion"
-              },
-              {
-                "title": "SEO & Growth",
-                "description": "Organic strategies that drive visibility and leads.",
-                "icon": "Megaphone",
-                "image": "/about/about-2.webp",
-                "link": "/services/seo"
-              },
-              {
-                "title": "E-Commerce Design",
-                "description": "Storefronts built for conversion and scale.",
-                "icon": "Gem",
-                "image": "/about/about-3.webp",
-                "link": "/services/ecommerce"
-              }
-            ],
-            "videoUrl": "https://www.youtube.com/embed/LXb3EKWsInQ?autoplay=1"
-          }
-        }
-      },
-      "ServicesOverview": {
-        "variants": {
-          "VeyoraServicesOverview1": {
-            "badge": "Service",
-            "images": {
-              "main": "/about/about-1.webp",
-              "secondary": "/about/about-2.webp"
-            },
-            "headingStart": "From First Idea to a Brand ",
-            "headingHighlight": "Built for Growth",
-            "description": "We bring strategy, identity, and digital thinking into one connected process, giving your brand the clarity to lead and the tools to keep moving.",
-            "button1": {
-              "text": "Explore Our Services",
-              "link": "/services"
-            },
-            "button2": {
-              "text": "View Selected Work",
-              "link": "/services"
-            },
-            "services": [
-              {
-                "number": "01",
-                "title": "Strategy & Positioning",
-                "description": "Find the space your brand can truly own.",
-                "features": [
-                  "Market Research",
-                  "Brand Positioning",
-                  "Identity Systems"
-                ]
-              },
-              {
-                "number": "02",
-                "title": "Digital Product Design",
-                "description": "Interfaces that look beautiful and work flawlessly.",
-                "features": [
-                  "UI/UX Design",
-                  "Prototyping",
-                  "Design Systems"
-                ]
-              },
-              {
-                "number": "03",
-                "title": "Web Development",
-                "description": "High-performance websites built for scale.",
-                "features": [
-                  "Front-end Dev",
-                  "CMS Integration",
-                  "E-Commerce"
-                ]
-              },
-              {
-                "number": "04",
-                "title": "Campaigns & Content",
-                "description": "Bring ideas to market with energy and consistency.",
-                "features": [
-                  "Content Marketing",
-                  "Social Media Marketing",
-                  "Campaign Strategy"
-                ]
-              }
-            ]
-          }
-        }
-      },
-      "AboutSection": {
-        "variants": {
-          "VeyoraAboutSection1": {
-            "images": {
-              "main": "/about/about-1.webp",
-              "top": "/about/about-2.webp",
-              "bottom": "/about/about-3.webp"
-            },
-            "badge": "ABOUT VEYORA",
-            "titleStart": "We Shape Brands\nThat ",
-            "titleHighlight": "Move People",
-            "description": "We blend strategy, design, and storytelling to build bold identities that connect, inspire, and grow.",
-            "features": [
-              {
-                "title": "Brand Strategy",
-                "icon": "Database"
-              },
-              {
-                "title": "Creative Direction",
-                "icon": "ShieldCheck"
-              }
-            ],
-            "stats": {
-              "target": 8,
-              "suffix": "+",
-              "label": "Years of Creative Impact"
-            },
-            "cta": {
-              "text": "Discover More",
-              "link": "/about"
-            }
-          }
-        }
-      },
-      "AboutVeyora": {
-        "variants": {
-          "VeyoraAboutVeyora1": {
-            "images": {
-              "main": "/about/about-1.webp",
-              "small1": "/about/about-6.webp",
-              "small2": "/about/about-4.webp",
-              "small3": "/about/about-7.webp"
-            },
-            "badge": "About Veyora",
-            "titleStart": "We Turn Bold Ideas Into ",
-            "titleHighlight": "Brands That Matter",
-            "description": "Veyora is an independent creative agency blending strategy, design, and storytelling to create brands people choose and remember.",
-            "points": [
-              "Strategy rooted in real insight",
-              "Distinctive design with purpose",
-              "A collaborative, transparent process"
-            ],
-            "testimonial": {
-              "quote": "Veyora gave our vision clarity, confidence, and a brand we're proud to lead with.",
-              "authorName": "Maya Chen",
-              "authorTitle": "Founder, North & Co.",
-              "authorImage": "/testimonials/maya.webp"
-            }
           }
         }
       },
@@ -1262,7 +446,7 @@
               }
             ],
             "bookingText": "Now booking projects for Q4 2026",
-            "image": "/cta/cta-collaboration.jpg",
+            "image": "/cta/cta-collaboration.webp",
             "imageAlt": "Creative Team Collaboration",
             "formHeadingStart": "Tell Us About Your\n",
             "formHeadingHighlight": "Project",
@@ -1315,792 +499,118 @@
           }
         }
       },
-      "ServiceDetail": {
+      "Footer": {
         "variants": {
-          "VeyoraServiceDetail1": {
-            "badge": "Staffing Solutions",
-            "headingStart": "Finding the Right People\n",
-            "headingHighlight": "for a Brighter Tomorrow",
-            "introImage": "/services/service-1.webp",
-            "description": "At Veyora, we provide customized staffing solutions that help businesses find, hire, and retain the right talent. Whether you need temporary staff, permanent hires, or specialized professionals, we connect you with skilled talent that fits your business goals and culture.",
-            "benefitsHeading": "Why Choose Our Staffing Solutions ?",
-            "benefits": [
+          "VeyoraFooter1": {
+            "brand": {
+              "logo": "/logo/v-blue-logo.webp",
+              "alt": "VEYORA",
+              "href": "/",
+              "tagline": "We build bold brand identities and digital experiences that move people and grow businesses."
+            },
+            "contact": {
+              "email": "info@xyz.com",
+              "phone": "+1 000-000-000",
+              "phoneTel": "+1 000-000-000"
+            },
+            "columns": [
               {
-                "icon": "Users",
-                "title": "Access to Skilled Talent",
-                "description": "Connect with pre-screened and qualified candidates across industries."
+                "title": "Explore",
+                "links": [
+                  {
+                    "label": "Home",
+                    "href": "#hero"
+                  },
+                  {
+                    "label": "About",
+                    "href": "#about"
+                  },
+                  {
+                    "label": "Services",
+                    "href": "#services"
+                  },
+                  {
+                    "label": "Process",
+                    "href": "#process"
+                  },
+                  {
+                    "label": "Work",
+                    "href": "#gallery"
+                  },
+                  {
+                    "label": "Team",
+                    "href": "#team"
+                  },
+                  {
+                    "label": "Testimonials",
+                    "href": "#testimonials"
+                  },
+                  {
+                    "label": "Contact",
+                    "href": "#contact"
+                  }
+                ]
               },
               {
-                "icon": "Target",
-                "title": "Industry-Specific Expertise",
-                "description": "Get talent with the right skills and industry experience."
+                "title": "Services",
+                "links": [
+                  {
+                    "label": "Brand Strategy",
+                    "href": "#services"
+                  },
+                  {
+                    "label": "Visual Identity",
+                    "href": "#services"
+                  },
+                  {
+                    "label": "Digital Experience",
+                    "href": "#services"
+                  },
+                  {
+                    "label": "Campaign Design",
+                    "href": "#services"
+                  }
+                ]
               },
               {
-                "icon": "Clock3",
-                "title": "Faster Hiring Process",
-                "description": "Reduce time-to-hire with our efficient recruitment approach."
-              },
-              {
-                "icon": "Star",
-                "title": "Quality & Reliability",
-                "description": "Thorough screening and assessment for the best fit."
-              },
-              {
-                "icon": "ShieldCheck",
-                "title": "Flexible Hiring Models",
-                "description": "Temporary, permanent, contract, and project-based staffing options."
-              },
-              {
-                "icon": "Headphones",
-                "title": "Ongoing Support",
-                "description": "Continuous assistance to ensure long-term success."
+                "title": "Follow",
+                "links": [
+                  {
+                    "label": "Instagram",
+                    "href": "https://instagram.com"
+                  },
+                  {
+                    "label": "LinkedIn",
+                    "href": "https://linkedin.com"
+                  },
+                  {
+                    "label": "Behance",
+                    "href": "https://behance.net"
+                  },
+                  {
+                    "label": "Dribbble",
+                    "href": "https://dribbble.com"
+                  }
+                ]
               }
             ],
-            "approachImage": "/about/about-1.webp",
-            "approachHeading": "Our Approach",
-            "approachDescription": "We follow a structured and transparent process to ensure that you get the right talent quickly and efficiently.",
-            "approach": [
-              {
-                "number": "01",
-                "title": "Understanding Your Needs",
-                "description": "We analyze your business requirements and role expectations."
-              },
-              {
-                "number": "02",
-                "title": "Sourcing & Screening",
-                "description": "Our team identifies, screens, and shortlists the best candidates."
-              },
-              {
-                "number": "03",
-                "title": "Interview & Selection",
-                "description": "We coordinate interviews and help you select the right fit."
-              },
-              {
-                "number": "04",
-                "title": "Onboarding Support",
-                "description": "We assist with a smooth onboarding process for long-term success."
-              }
-            ],
-            "servicesTitle": "Our Services",
-            "services": [
-              {
-                "title": "Brand Strategy",
-                "link": "/services/brand-strategy"
-              },
-              {
-                "title": "Visual Identity",
-                "link": "/services/ui-ux"
-              },
-              {
-                "title": "Digital Experience",
-                "link": "/services/marketing"
-              },
-              {
-                "title": "Campaign Design",
-                "link": "/services/identity"
-              },
-              {
-                "title": "Content Strategy",
-                "link": "/services/content-strategy"
-              },
-              {
-                "title": "Motion & Animation",
-                "link": "/services/motion"
-              },
-              {
-                "title": "SEO & Growth",
-                "link": "/services/seo"
-              },
-              {
-                "title": "E-Commerce Design",
-                "link": "/services/ecommerce"
-              }
-            ],
-            "helpCardTitle": "Need Help Finding The Right Talent?",
-            "helpCardDescription": "Let our experts help you with customized staffing solutions for your business.",
-            "helpCardButtonText": "Talk to Our Experts",
-            "helpCardButtonLink": "/contact",
-            "openingHoursTitle": "Opening Hours",
-            "hours": [
-              [
-                "Monday - Friday",
-                "09:00 - 18:00"
-              ],
-              [
-                "Saturday",
-                "10:00 - 16:00"
-              ],
-              [
-                "Sunday",
-                "Closed"
+            "legal": {
+              "copyright": "© 2026 All Rights Reserved. Powered by Lestow",
+              "links": [
+                {
+                  "label": "Terms of Use",
+                  "href": "/terms"
+                },
+                {
+                  "label": "Privacy Policy",
+                  "href": "/privacy"
+                }
               ]
-            ],
-            "relatedServicesTitle": "Related Services",
-            "relatedServices": [
-              {
-                "title": "Leadership Training",
-                "image": "/services/leadership-trainning.webp",
-                "link": "/services/leadership-training"
-              }
-            ],
-            "servicesData": {
-              "brand-strategy": {
-                "badge": "Brand Strategy",
-                "headingStart": "Shaping Purposeful Brands\n",
-                "headingHighlight": "for Enduring Market Impact",
-                "introImage": "/about/about-2.webp",
-                "description": "At Veyora, we develop transformative brand strategies that position your business for market dominance. Through in-depth research, distinctive positioning, and compelling narratives, we clarify who you are, why you matter, and where you are headed.",
-                "benefitsHeading": "Why Choose Our Brand Strategy",
-                "benefits": [
-                  {
-                    "icon": "Target",
-                    "title": "Distinct Market Positioning",
-                    "description": "Stand out from competitors with an unmistakable position that commands attention."
-                  },
-                  {
-                    "icon": "Users",
-                    "title": "Deep Audience Alignment",
-                    "description": "Forge emotional connections with high-value customers through tailored messaging."
-                  },
-                  {
-                    "icon": "Star",
-                    "title": "Long-Term Brand Equity",
-                    "description": "Build timeless value that increases customer loyalty and compound growth."
-                  },
-                  {
-                    "icon": "ShieldCheck",
-                    "title": "Holistic Architecture",
-                    "description": "Organize your products, services, and sub-brands into an intuitive ecosystem."
-                  },
-                  {
-                    "icon": "Clock3",
-                    "title": "Accelerated Market Entry",
-                    "description": "Streamline campaign execution with ready-to-use positioning frameworks."
-                  },
-                  {
-                    "icon": "Headphones",
-                    "title": "Ongoing Advisory",
-                    "description": "Dedicated strategic guidance as your organization scales into new verticals."
-                  }
-                ],
-                "approachHeading": "Our Strategic Blueprint",
-                "approachDescription": "A rigorous 4-step framework that turns market insight into measurable brand performance.",
-                "approachImage": "/about/about-3.webp",
-                "approach": [
-                  {
-                    "number": "01",
-                    "title": "Market & Competitive Audit",
-                    "description": "We analyze your market landscape, competitive gaps, and customer sentiments."
-                  },
-                  {
-                    "number": "02",
-                    "title": "Core Value Definition",
-                    "description": "We crystallize your brand mission, vision, purpose, and key value propositions."
-                  },
-                  {
-                    "number": "03",
-                    "title": "Positioning & Messaging",
-                    "description": "We engineer clear messaging matrices and communication guidelines."
-                  },
-                  {
-                    "number": "04",
-                    "title": "Activation & Governance",
-                    "description": "We roll out brand playbooks and align internal teams for launch readiness."
-                  }
-                ]
-              },
-              "ui-ux": {
-                "badge": "Visual Identity",
-                "headingStart": "Crafting Iconic Visuals\n",
-                "headingHighlight": "that Define Modern Brands",
-                "introImage": "/about/about-3.webp",
-                "description": "We build cohesive visual identity systems that communicate your essence at a glance. From iconic logos and typography to custom color palettes and design tokens, we make sure every touchpoint reflects excellence and credibility.",
-                "benefitsHeading": "Why Choose Our Visual Identity",
-                "benefits": [
-                  {
-                    "icon": "Star",
-                    "title": "Memorable Brand Recall",
-                    "description": "Distinctive visual aesthetics that stay top of mind across digital and print media."
-                  },
-                  {
-                    "icon": "Target",
-                    "title": "Complete Design Systems",
-                    "description": "Comprehensive guideline manuals, typography rules, and asset libraries."
-                  },
-                  {
-                    "icon": "ShieldCheck",
-                    "title": "Cross-Platform Harmony",
-                    "description": "Flawless visual consistency across web, mobile apps, social media, and packaging."
-                  },
-                  {
-                    "icon": "Users",
-                    "title": "Customer Trust & Authority",
-                    "description": "Professional visual design that instills immediate confidence and elevates perceived value."
-                  },
-                  {
-                    "icon": "Clock3",
-                    "title": "Scalable Asset Kits",
-                    "description": "Modular component libraries ready for immediate handoff to dev and marketing teams."
-                  },
-                  {
-                    "icon": "Headphones",
-                    "title": "Brand Identity Support",
-                    "description": "Continuous file updates, vector exports, and asset management support."
-                  }
-                ],
-                "approachHeading": "Our Identity Design Process",
-                "approachDescription": "From initial sketches to comprehensive guidelines, we craft visual languages that endure.",
-                "approachImage": "/about/about-1.webp",
-                "approach": [
-                  {
-                    "number": "01",
-                    "title": "Visual Discovery & Moodboards",
-                    "description": "Exploring aesthetic directions, textures, typography styles, and color theories."
-                  },
-                  {
-                    "number": "02",
-                    "title": "Logo & Concept Iteration",
-                    "description": "Generating geometric, typographic, and symbolic marks with meticulous craft."
-                  },
-                  {
-                    "number": "03",
-                    "title": "Design System Assembly",
-                    "description": "Building cohesive color palettes, font pairings, and UI design components."
-                  },
-                  {
-                    "number": "04",
-                    "title": "Guidelines & Asset Export",
-                    "description": "Delivering full brand books, vector files, and digital asset kits."
-                  }
-                ]
-              },
-              "marketing": {
-                "badge": "Digital Experience",
-                "headingStart": "Immersive Web Experiences\n",
-                "headingHighlight": "Engineered for Conversion",
-                "introImage": "/about/about-1.webp",
-                "description": "We craft high-performance digital products and web experiences that engage users and drive conversions. By combining human-centered UX design with modern interactive tech, we turn ordinary visits into memorable brand journeys.",
-                "benefitsHeading": "Why Choose Our Digital Experience",
-                "benefits": [
-                  {
-                    "icon": "Target",
-                    "title": "Higher Conversion Rates",
-                    "description": "Frictionless user flows optimized to turn curious visitors into loyal customers."
-                  },
-                  {
-                    "icon": "Clock3",
-                    "title": "Lightning-Fast Speed",
-                    "description": "Cutting-edge frontend architectures designed for ultra-low latency and peak performance."
-                  },
-                  {
-                    "icon": "ShieldCheck",
-                    "title": "Intuitive Navigation",
-                    "description": "Clean user interfaces that make discovering products and content effortless."
-                  },
-                  {
-                    "icon": "Users",
-                    "title": "Mobile-First Responsiveness",
-                    "description": "Pixel-perfect layouts that adapt seamlessly across phones, tablets, and desktops."
-                  },
-                  {
-                    "icon": "Star",
-                    "title": "Interactive Micro-Moments",
-                    "description": "Subtle animations and reactive elements that bring the interface to life."
-                  },
-                  {
-                    "icon": "Headphones",
-                    "title": "Continuous UX Optimization",
-                    "description": "Analytics-driven iterations based on real user behavior and heatmaps."
-                  }
-                ],
-                "approachHeading": "Our Experience Creation Process",
-                "approachDescription": "Crafting user journeys with precision, from wireframes to polished digital deployments.",
-                "approachImage": "/about/about-2.webp",
-                "approach": [
-                  {
-                    "number": "01",
-                    "title": "User Research & Mapping",
-                    "description": "Identifying key user personas, pain points, and conversion pathways."
-                  },
-                  {
-                    "number": "02",
-                    "title": "Wireframing & Prototyping",
-                    "description": "Constructing interactive prototypes to validate layout and flow before code."
-                  },
-                  {
-                    "number": "03",
-                    "title": "UI Design & Micro-Animations",
-                    "description": "Infusing brand beauty with engaging motion and clean typography."
-                  },
-                  {
-                    "number": "04",
-                    "title": "Testing & Launch",
-                    "description": "Comprehensive cross-browser testing and performance optimization."
-                  }
-                ]
-              },
-              "identity": {
-                "badge": "Campaign Design",
-                "headingStart": "High-Impact Creative Campaigns\n",
-                "headingHighlight": "that Spark Momentum",
-                "introImage": "/about/about-2.webp",
-                "description": "We create bold advertising and multichannel creative campaigns that stop thumbs, command attention, and inspire action. From product launches to seasonal pushes, we ensure your message cuts through the noise.",
-                "benefitsHeading": "Why Choose Our Campaign Design",
-                "benefits": [
-                  {
-                    "icon": "Star",
-                    "title": "High-Attention Creatives",
-                    "description": "Visuals and headlines engineered to stand out in saturated feeds and channels."
-                  },
-                  {
-                    "icon": "Target",
-                    "title": "Multi-Channel Consistency",
-                    "description": "Unified visuals tailored for social ads, email marketing, billboards, and landing pages."
-                  },
-                  {
-                    "icon": "Users",
-                    "title": "Emotion-Driven Engagement",
-                    "description": "Story-driven concepts that resonate deeply with audience desires and needs."
-                  },
-                  {
-                    "icon": "Clock3",
-                    "title": "Fast Creative Turnaround",
-                    "description": "Rapid concept delivery and asset generation to capture trending market opportunities."
-                  },
-                  {
-                    "icon": "ShieldCheck",
-                    "title": "A/B Testing Variations",
-                    "description": "Multiple visual hooks and copy angles to maximize ad spend efficiency."
-                  },
-                  {
-                    "icon": "Headphones",
-                    "title": "Full Creative Support",
-                    "description": "End-to-end management of creative assets from concept to campaign wrap-up."
-                  }
-                ],
-                "approachHeading": "Our Campaign Workflow",
-                "approachDescription": "Strategic storytelling designed to achieve clear KPIs across every creative touchpoint.",
-                "approachImage": "/about/about-3.webp",
-                "approach": [
-                  {
-                    "number": "01",
-                    "title": "Creative Brief & Concepting",
-                    "description": "Developing high-level campaign themes, tone, and strategic angles."
-                  },
-                  {
-                    "number": "02",
-                    "title": "Storyboarding & Art Direction",
-                    "description": "Crafting visuals, video treatments, and digital ad mockups."
-                  },
-                  {
-                    "number": "03",
-                    "title": "Production & Asset Scaling",
-                    "description": "Generating all format sizes across social, display, print, and web."
-                  },
-                  {
-                    "number": "04",
-                    "title": "Launch & Performance Review",
-                    "description": "Analyzing performance metrics and tweaking assets for maximum ROI."
-                  }
-                ]
-              },
-              "content-strategy": {
-                "badge": "Content Strategy",
-                "headingStart": "Strategic Brand Storytelling\n",
-                "headingHighlight": "that Builds Authority",
-                "introImage": "/about/about-3.webp",
-                "description": "We build editorial and content systems that establish your leadership, educate your prospects, and foster trust. From thought leadership to high-converting copy, we articulate your value with clarity and resonance.",
-                "benefitsHeading": "Why Choose Our Content Strategy",
-                "benefits": [
-                  {
-                    "icon": "Target",
-                    "title": "Clear Brand Voice",
-                    "description": "A distinctive, authentic tone of voice that sets your brand apart in every article and post."
-                  },
-                  {
-                    "icon": "Users",
-                    "title": "Audience-Centric Value",
-                    "description": "Content that answers burning customer questions and guides them through the funnel."
-                  },
-                  {
-                    "icon": "Star",
-                    "title": "Organic Search Authority",
-                    "description": "Content engineered to rank on search engines while providing genuine value to readers."
-                  },
-                  {
-                    "icon": "Clock3",
-                    "title": "Consistent Publishing Engine",
-                    "description": "Structured content calendars and editorial workflows for regular cadence."
-                  },
-                  {
-                    "icon": "ShieldCheck",
-                    "title": "High-Converting Copywriting",
-                    "description": "Persuasive headlines and calls-to-action that prompt immediate engagement."
-                  },
-                  {
-                    "icon": "Headphones",
-                    "title": "Editorial Governance",
-                    "description": "Guidelines and review procedures that maintain pristine quality across writers."
-                  }
-                ],
-                "approachHeading": "Our Content Methodology",
-                "approachDescription": "A systematic editorial engine that continuously powers brand relevance and engagement.",
-                "approachImage": "/about/about-1.webp",
-                "approach": [
-                  {
-                    "number": "01",
-                    "title": "Audience Insight & Keyword Audit",
-                    "description": "Mapping topics that prospective clients care about and search for."
-                  },
-                  {
-                    "number": "02",
-                    "title": "Tone of Voice & Pillars",
-                    "description": "Setting editorial themes, brand vocabulary, and narrative structures."
-                  },
-                  {
-                    "number": "03",
-                    "title": "Calendar & Content Creation",
-                    "description": "Writing in-depth articles, case studies, guides, and social copy."
-                  },
-                  {
-                    "number": "04",
-                    "title": "Distribution & Optimization",
-                    "description": "Distributing across channels and optimizing for sustained reader engagement."
-                  }
-                ]
-              },
-              "motion": {
-                "badge": "Motion & Animation",
-                "headingStart": "Dynamic Motion Design\n",
-                "headingHighlight": "Bringing Brands to Life",
-                "introImage": "/about/about-1.webp",
-                "description": "Motion brings energy, clarity, and emotion to your digital presence. We produce bespoke 2D/3D motion graphics, brand stingers, interactive UI micro-animations, and promotional videos that captivate your audience.",
-                "benefitsHeading": "Why Choose Our Motion Design",
-                "benefits": [
-                  {
-                    "icon": "Star",
-                    "title": "Captivating Visual Energy",
-                    "description": "Draw the viewer in instantly with fluid movement, cinematic pacing, and vibrant color."
-                  },
-                  {
-                    "icon": "Target",
-                    "title": "Clear Concept Explanation",
-                    "description": "Simplify complex workflows and technical products through intuitive visual storytelling."
-                  },
-                  {
-                    "icon": "Users",
-                    "title": "Higher Social Engagement",
-                    "description": "Video and animated content consistently yields 3x higher retention and sharing rates."
-                  },
-                  {
-                    "icon": "ShieldCheck",
-                    "title": "Interactive UI Delight",
-                    "description": "Polished micro-interactions and transitions that make web apps feel responsive and alive."
-                  },
-                  {
-                    "icon": "Clock3",
-                    "title": "Flexible Delivery Formats",
-                    "description": "Lottie animations, MP4, WebM, and GIF files ready for web, mobile, and presentation use."
-                  },
-                  {
-                    "icon": "Headphones",
-                    "title": "Comprehensive Post-Production",
-                    "description": "Professional sound design, color grading, and custom audio mixing included."
-                  }
-                ],
-                "approachHeading": "Our Animation Pipeline",
-                "approachDescription": "From storyboard to final frame render, we craft animations that move audiences.",
-                "approachImage": "/about/about-2.webp",
-                "approach": [
-                  {
-                    "number": "01",
-                    "title": "Concept & Scripting",
-                    "description": "Drafting narrative arcs, visual metaphors, and voiceover scripts."
-                  },
-                  {
-                    "number": "02",
-                    "title": "Styleframes & Storyboarding",
-                    "description": "Illustrating key frames to lock down artistic direction and timing."
-                  },
-                  {
-                    "number": "03",
-                    "title": "Animation & Keyframing",
-                    "description": "Bringing elements to life with fluid kinematics, easing, and visual effects."
-                  },
-                  {
-                    "number": "04",
-                    "title": "Audio Scoring & Delivery",
-                    "description": "Mixing sound design and delivering optimized web and broadcast video assets."
-                  }
-                ]
-              },
-              "seo": {
-                "badge": "SEO & Growth",
-                "headingStart": "Data-Driven Search Growth\n",
-                "headingHighlight": "for Predictable Inbound Scale",
-                "introImage": "/about/about-2.webp",
-                "description": "We build durable search engine optimization engines that attract high-intent organic visitors. By tackling technical architecture, content clustering, and authoritative backlink profiles, we turn search into a reliable revenue driver.",
-                "benefitsHeading": "Why Choose Our SEO & Growth",
-                "benefits": [
-                  {
-                    "icon": "Target",
-                    "title": "High-Intent Inbound Leads",
-                    "description": "Capture prospects who are actively searching for your exact solutions and services."
-                  },
-                  {
-                    "icon": "Clock3",
-                    "title": "Compounding Organic Traffic",
-                    "description": "Build traffic assets that continue generating leads month after month without ad spend."
-                  },
-                  {
-                    "icon": "ShieldCheck",
-                    "title": "Technical Site Health",
-                    "description": "Fix crawl issues, core web vitals, site speed, and structured data for search engines."
-                  },
-                  {
-                    "icon": "Star",
-                    "title": "Authoritative Domain Growth",
-                    "description": "Earn high-quality links and citations from industry-leading publications and platforms."
-                  },
-                  {
-                    "icon": "Users",
-                    "title": "Local & Global Search Dominance",
-                    "description": "Optimize for regional visibility as well as worldwide competitive terms."
-                  },
-                  {
-                    "icon": "Headphones",
-                    "title": "Transparent Monthly Analytics",
-                    "description": "Clear reporting on keyword rankings, traffic growth, conversions, and ROI."
-                  }
-                ],
-                "approachHeading": "Our Search Growth Framework",
-                "approachDescription": "Systematic technical and content optimization for sustainable search dominance.",
-                "approachImage": "/about/about-3.webp",
-                "approach": [
-                  {
-                    "number": "01",
-                    "title": "Comprehensive Technical Audit",
-                    "description": "Diagnosing site architecture, indexing hurdles, schema markup, and load speeds."
-                  },
-                  {
-                    "number": "02",
-                    "title": "Opportunity & Keyword Mapping",
-                    "description": "Uncovering high-converting search terms and user intent gaps."
-                  },
-                  {
-                    "number": "03",
-                    "title": "On-Page & Architecture Refinement",
-                    "description": "Restructuring internal linking, metadata, and core page content."
-                  },
-                  {
-                    "number": "04",
-                    "title": "Link Authority & Performance Tracking",
-                    "description": "Building industry citations and continually refining targeting based on data."
-                  }
-                ]
-              },
-              "ecommerce": {
-                "badge": "E-Commerce Design",
-                "headingStart": "Next-Gen E-Commerce Design\n",
-                "headingHighlight": "Built for Scale and Revenue",
-                "introImage": "/about/about-3.webp",
-                "description": "We design and optimize bespoke e-commerce experiences that maximize average order value and customer lifetime value. From lightning-fast product pages to streamlined checkout flows, we build stores that convert at the highest benchmarks.",
-                "benefitsHeading": "Why Choose Our E-Commerce Design",
-                "benefits": [
-                  {
-                    "icon": "Target",
-                    "title": "Maximized Conversion Rates",
-                    "description": "Friction-free product discovery, filtering, and checkout flows that minimize cart drop-off."
-                  },
-                  {
-                    "icon": "Star",
-                    "title": "High Average Order Value",
-                    "description": "Strategic upsells, product bundles, and smart cross-sells integrated smoothly into the journey."
-                  },
-                  {
-                    "icon": "ShieldCheck",
-                    "title": "Ultra-Secure & Reliable",
-                    "description": "Built with enterprise-grade security, PCI compliance, and reliable payment integrations."
-                  },
-                  {
-                    "icon": "Users",
-                    "title": "Seamless Mobile Shopping",
-                    "description": "Touch-optimized mobile experiences featuring Apple Pay, Google Pay, and 1-click buy."
-                  },
-                  {
-                    "icon": "Clock3",
-                    "title": "Instant Page Speeds",
-                    "description": "Optimized product asset loading to ensure zero lag even during peak promotional sales."
-                  },
-                  {
-                    "icon": "Headphones",
-                    "title": "Platform Maintenance & Growth",
-                    "description": "Ongoing conversion rate optimization (CRO) and platform updates."
-                  }
-                ],
-                "approachHeading": "Our Storefront Creation Process",
-                "approachDescription": "Every stage engineered to turn shoppers into passionate, repeat brand advocates.",
-                "approachImage": "/about/about-1.webp",
-                "approach": [
-                  {
-                    "number": "01",
-                    "title": "Store Strategy & Customer Journey",
-                    "description": "Analyzing buyer personas, product catalog hierarchies, and checkout bottlenecks."
-                  },
-                  {
-                    "number": "02",
-                    "title": "UX Architecture & Wireframes",
-                    "description": "Designing product discovery, facet filtering, cart drawers, and checkout funnels."
-                  },
-                  {
-                    "number": "03",
-                    "title": "Brand Styling & Visual Polish",
-                    "description": "Elevating product pages with rich media, interactive 3D/zoom, and typography."
-                  },
-                  {
-                    "number": "04",
-                    "title": "Launch & Checkout Testing",
-                    "description": "Thorough payment gateway testing, inventory sync, and live launch verification."
-                  }
-                ]
-              }
+            },
+            "theme": {
+              "background": "#08090d",
+              "accent": "#2563eb"
             }
-          }
-        }
-      },
-      "AboutHero": {
-        "variants": {
-          "VeyoraAboutHero1": {
-            "title": "About Us",
-            "breadcrumb": "About Us",
-            "backgroundImage": "/about/about-hero.webp"
-          }
-        }
-      },
-      "PageHeroes": {
-        "variants": {
-          "/about": {
-            "title": "About Us",
-            "breadcrumb": "About Us",
-            "backgroundImage": "/about/about-hero.webp"
-          },
-          "/contact": {
-            "title": "Contact Us",
-            "breadcrumb": "Contact",
-            "backgroundImage": "/about/about-hero.webp"
-          },
-          "/gallery": {
-            "title": "Our Gallery",
-            "breadcrumb": "Gallery",
-            "backgroundImage": "/about/about-hero.webp"
-          },
-          "/services": {
-            "title": "Our Services",
-            "breadcrumb": "Services",
-            "backgroundImage": "/about/about-hero.webp"
-          },
-          "/blog": {
-            "title": "Our Blog",
-            "breadcrumb": "Blog",
-            "backgroundImage": "/about/about-hero.webp"
-          },
-          "default": {
-            "title": "Veyora",
-            "breadcrumb": "Page",
-            "backgroundImage": "/about/about-hero.webp"
-          }
-        }
-      },
-      "Stats": {
-        "variants": {
-          "VeyoraStats1": {
-            "items": [
-              {
-                "value": 12,
-                "suffix": "+",
-                "label": "Years Experience",
-                "icon": "Star"
-              },
-              {
-                "value": 150,
-                "suffix": "+",
-                "label": "Projects Delivered",
-                "icon": "Trophy"
-              },
-              {
-                "value": 50,
-                "suffix": "+",
-                "label": "Team Experts",
-                "icon": "Users"
-              },
-              {
-                "value": 99,
-                "suffix": "%",
-                "label": "Client Satisfaction",
-                "icon": "PieChart"
-              }
-            ]
-          }
-        }
-      },
-      "LocationSection": {
-        "variants": {
-          "VeyoraLocation1": {
-            "latitude": 40.7128,
-            "longitude": -74.006,
-            "title": "Veyora — New York",
-            "address": "Manhattan, New York, USA"
-          }
-        }
-      },
-      "ProcessSection": {
-        "variants": {
-          "VeyoraProcess1": {
-            "badge": "How it work",
-            "headingStart": "A Clear Process From First\nConversation to",
-            "headingHighlight": "Final Launch",
-            "description": "Simple steps, open collaboration, and no surprises along the way.",
-            "steps": [
-              {
-                "number": "01",
-                "title": "Discover",
-                "description": "We dive deep to understand your goals, audience, and market.",
-                "icon": "Search"
-              },
-              {
-                "number": "02",
-                "title": "Strategy",
-                "description": "Mapping out a clear, actionable plan for success.",
-                "icon": "Target"
-              },
-              {
-                "number": "03",
-                "title": "Design",
-                "description": "Creating beautiful, user-centric experiences.",
-                "icon": "Layers3"
-              },
-              {
-                "number": "04",
-                "title": "Launch",
-                "description": "Bringing your vision to life and beyond.",
-                "icon": "Send"
-              }
-            ],
-            "ctaText": "Have a project in mind?",
-            "ctaButtonText": "Start the Process",
-            "ctaButtonLink": "/contact"
-          }
-        }
-      },
-      "ProjectCTA": {
-        "variants": {
-          "VeyoraProjectCTA1": {
-            "badge": "Let's Build Something Bold",
-            "headingStart": "Ready to Make Your ",
-            "headingHighlight": "Brand Unforgettable",
-            "description": "Let's turn your next big idea into a brand people remember.",
-            "buttonText": "Start a Project",
-            "buttonLink": "/contact"
           }
         }
       }

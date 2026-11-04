@@ -42,7 +42,7 @@ export default function ContactSection() {
   };
 
   return (
-    <section className="relative overflow-hidden bg-white">
+    <section id="contact" className="relative scroll-mt-20 overflow-hidden bg-white">
       <div className="grid min-h-screen lg:grid-cols-2">
         <motion.div
           initial={{
@@ -60,7 +60,7 @@ export default function ContactSection() {
           className="relative flex min-h-[620px] overflow-hidden bg-[#08090b] px-6 py-14 text-white sm:px-10 sm:py-16 md:px-14 md:py-20 lg:min-h-screen lg:px-10 lg:py-14 xl:px-14 2xl:px-16"
         >
           <div className="pointer-events-none absolute inset-0 opacity-30">
-            <div className="absolute -left-20 top-20 h-72 w-72 rounded-full bg-[#d8003f]/10 blur-3xl" />
+            <div className="absolute -left-20 top-20 h-72 w-72 rounded-full bg-[#2563eb]/10 blur-3xl" />
 
             <div className="absolute bottom-0 right-0 h-96 w-96 rounded-full bg-white/[0.025] blur-3xl" />
 
@@ -81,9 +81,9 @@ export default function ContactSection() {
                 duration: 0.6,
                 delay: 0.2,
               }}
-              className="inline-flex self-start rounded-full border-2 border-[#d8003f] px-4 py-2 "
+              className="inline-flex self-start rounded-full border-2 border-[#2563eb] px-4 py-2 "
             >
-              <span className="text-[12px] font-bold uppercase tracking-[0.08em] text-[#d8003f] ">
+              <span className="text-[12px] font-bold uppercase tracking-[0.08em] text-[#2563eb] ">
                 {data.badge}
               </span>
             </motion.div>
@@ -105,7 +105,7 @@ export default function ContactSection() {
               className="mt-6 text-[56px] font-bold leading-[0.98] tracking-[-0.055em]"
             >
               {data.headingStart}
-              <span className="block text-[#e00040]">
+              <span className="block text-[#2563eb]">
                 {data.headingHighlight}
               </span>
             </motion.h2>
@@ -278,7 +278,7 @@ export default function ContactSection() {
                     name="company"
                     type="text"
                     placeholder={data.formFields?.company?.placeholder || "Company"}
-                    className="mt-1 h-12 w-full border-b-2 border-[#17191f]/80 bg-transparent px-0 text-base text-[#111318] outline-none placeholder:text-[#17191f] transition-colors duration-300 focus:border-[#d8003f] sm:text-lg"
+                    className="mt-1 h-12 w-full border-b-2 border-[#17191f]/80 bg-transparent px-0 text-base text-[#111318] outline-none placeholder:text-[#17191f] transition-colors duration-300 focus:border-[#2563eb] sm:text-lg"
                   />
                 </div>
 
@@ -300,7 +300,7 @@ export default function ContactSection() {
                     onChange={handlePhoneChange}
                     placeholder={data.formFields?.phone?.placeholder || "Phone"}
                     pattern="[0-9]*"
-                    className="mt-1 h-12 w-full border-b-2 border-[#17191f]/80 bg-transparent px-0 text-base text-[#111318] outline-none placeholder:text-[#17191f] transition-colors duration-300 focus:border-[#d8003f] sm:text-lg"
+                    className="mt-1 h-12 w-full border-b-2 border-[#17191f]/80 bg-transparent px-0 text-base text-[#111318] outline-none placeholder:text-[#17191f] transition-colors duration-300 focus:border-[#2563eb] sm:text-lg"
                   />
                 </div>
 
@@ -317,7 +317,7 @@ export default function ContactSection() {
                     onClick={() =>
                       setIsOpen((open) => !open)
                     }
-                    className="mt-1 flex h-12 w-full items-center justify-between border-b-2 border-[#17191f]/80 bg-transparent text-left text-base text-[#17191f] transition-colors duration-300 hover:border-[#d8003f] sm:text-lg"
+                    className="mt-1 flex h-12 w-full items-center justify-between border-b-2 border-[#17191f]/80 bg-transparent text-left text-base text-[#17191f] transition-colors duration-300 hover:border-[#2563eb] sm:text-lg"
                   >
                     <span
                       className={
@@ -357,7 +357,7 @@ export default function ContactSection() {
                             setService(item);
                             setIsOpen(false);
                           }}
-                          className="block w-full px-5 py-3 text-left text-sm text-[#111318] transition-colors duration-200 hover:bg-[#d8003f] hover:text-white sm:text-base"
+                          className="block w-full px-5 py-3 text-left text-sm text-[#111318] transition-colors duration-200 hover:bg-[#2563eb] hover:text-white sm:text-base"
                         >
                           {item}
                         </button>
@@ -379,7 +379,7 @@ export default function ContactSection() {
                     name="details"
                     rows={4}
                     placeholder={data.formFields?.details?.placeholder || "What are you hoping to create or change?"}
-                    className="mt-2 min-h-[145px] w-full resize-none border-2 border-[#17191f]/80 bg-transparent px-4 py-4 text-base text-[#111318] outline-none placeholder:text-[#17191f]/75 transition-colors duration-300 focus:border-[#d8003f] sm:text-lg"
+                    className="mt-2 min-h-[145px] w-full resize-none border-2 border-[#17191f]/80 bg-transparent px-4 py-4 text-base text-[#111318] outline-none placeholder:text-[#17191f]/75 transition-colors duration-300 focus:border-[#2563eb] sm:text-lg"
                   />
                 </div>
               </div>
@@ -387,7 +387,7 @@ export default function ContactSection() {
               <div className="mt-9 flex flex-col items-start gap-4 sm:items-end">
                 <button
                   type="submit"
-                  className="group inline-flex items-center gap-5 rounded-full bg-[#d8003f] px-8 py-4 text-base font-medium text-white shadow-[0_10px_30px_rgba(216,0,63,0.18)] transition-all duration-300 hover:scale-[1.02] hover:bg-[#bd0037] sm:px-9 sm:py-4 sm:text-lg"
+                  className="group inline-flex items-center gap-5 rounded-full bg-[#2563eb] px-8 py-4 text-base font-medium text-white shadow-[0_10px_30px_rgba(37,99,235,0.18)] transition-all duration-300 hover:scale-[1.02] hover:bg-[#1d4ed8] sm:px-9 sm:py-4 sm:text-lg"
                 >
                   <span>
                     {submitted
@@ -405,61 +405,18 @@ export default function ContactSection() {
                 <p className="text-sm text-[#111318] sm:text-base">
                   {data.formFooterText || "We reply within 2 business days."}
                 </p>
+
+                {submitted && (
+                  <div className="flex w-full items-center gap-3 rounded-lg border border-green-200 bg-green-50 px-4 py-3 text-sm font-medium text-green-800">
+                    <CheckCircle size={18} className="shrink-0 text-green-600" />
+                    <span>Thank you! Your message has been sent successfully.</span>
+                  </div>
+                )}
               </div>
             </motion.form>
           </div>
         </motion.div>
       </div>
-
-      {/* Success Modal Popup */}
-      <AnimatePresence>
-        {submitted && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center px-4">
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              className="absolute inset-0 bg-[#08090b]/40 backdrop-blur-sm"
-              onClick={() => setSubmitted(false)}
-            />
-            
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-              className="relative z-10 flex w-full max-w-[420px] flex-col items-center overflow-hidden rounded-2xl bg-white p-8 text-center shadow-[0_20px_60px_rgba(0,0,0,0.15)]"
-            >
-              <button 
-                type="button"
-                onClick={() => setSubmitted(false)}
-                className="absolute right-4 top-4 rounded-full p-2 text-[#17191f]/40 transition-colors hover:bg-[#f8dfe2] hover:text-[#d8003f]"
-                aria-label="Close popup"
-              >
-                <X size={20} strokeWidth={2} />
-              </button>
-
-              <div className="mb-5 flex h-16 w-16 items-center justify-center rounded-full bg-[#d8003f]/10 text-[#d8003f]">
-                <CheckCircle size={32} strokeWidth={2} />
-              </div>
-              
-              <h4 className="mb-2 text-2xl font-bold text-[#111318]">{data.popup?.title || "Message Sent!"}</h4>
-              <p className="mb-8 text-base text-[#17191f]/70">
-                {data.popup?.description || "Thank you for reaching out. We have received your project brief and will get back to you within 2 business days."}
-              </p>
-
-              <button
-                type="button"
-                onClick={() => setSubmitted(false)}
-                className="w-full rounded-full bg-[#d8003f] py-3.5 text-base font-semibold text-white transition-all duration-300 hover:bg-[#bd0037] hover:shadow-[0_8px_20px_rgba(216,0,63,0.2)]"
-              >
-                {data.popup?.buttonText || "Close Window"}
-              </button>
-            </motion.div>
-          </div>
-        )}
-      </AnimatePresence>
     </section>
   );
 }
@@ -481,7 +438,7 @@ function ContactInfo({
       }}
       className="flex items-center gap-5 border-b border-white/15 py-5 text-base sm:text-lg md:text-xl"
     >
-      <span className="shrink-0 text-[#d8003f]">
+      <span className="shrink-0 text-[#2563eb]">
         {icon}
       </span>
 
@@ -520,7 +477,7 @@ function Field({
         type={type}
         placeholder={placeholder}
         required={required}
-        className="mt-1 h-12 w-full border-b-2 border-[#17191f]/80 bg-transparent px-0 text-base text-[#111318] outline-none placeholder:text-[#17191f] transition-colors duration-300 focus:border-[#d8003f] sm:text-lg"
+        className="mt-1 h-12 w-full border-b-2 border-[#17191f]/80 bg-transparent px-0 text-base text-[#111318] outline-none placeholder:text-[#17191f] transition-colors duration-300 focus:border-[#2563eb] sm:text-lg"
       />
     </div>
   );

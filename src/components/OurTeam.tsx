@@ -11,7 +11,7 @@ export default function OurTeam() {
   if (!teamData) return null;
 
   return (
-    <section className="relative overflow-hidden bg-white px-4 py-2 sm:px-6 sm:py-4 md:px-8 md:py-6 lg:px-12 lg:py-8 xl:px-16">
+    <section id="team" className="relative scroll-mt-20 overflow-hidden bg-white px-4 py-8 sm:px-6 sm:py-10 md:px-8 md:py-12 lg:px-12 lg:py-14 xl:px-16">
       <div className="mx-auto max-w-[1450px]">
         <Header
           badge={teamData.badge}
@@ -50,9 +50,9 @@ function Header({
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
-        className="inline-flex items-center justify-center rounded-full border-2 border-[#d8003f] px-6 py-2 sm:px-7"
+        className="inline-flex items-center justify-center rounded-full border-2 border-[#2563eb] px-6 py-2 sm:px-7"
       >
-        <span className="text-xs font-bold uppercase tracking-[0.08em] text-[#d8003f] sm:text-sm">
+        <span className="text-xs font-bold uppercase tracking-[0.08em] text-[#2563eb] sm:text-sm">
           {badge}
         </span>
       </motion.div>
@@ -68,7 +68,7 @@ function Header({
         className="mt-5 text-[56px] font-extrabold leading-[1.08] tracking-[-0.03em] text-[#11151c] sm:mt-6"
       >
         {heading.line1}{" "}
-        <span className="text-[#c9003b]">{heading.highlight}</span>
+        <span className="text-[#2563eb]">{heading.highlight}</span>
       </motion.h2>
       <motion.p
         initial={{ opacity: 0, y: 15 }}
@@ -111,14 +111,14 @@ function TeamCard({
           sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 25vw"
         />
       </div>
-      <div className="h-[2.5px] w-full bg-[#d8003f]" aria-hidden="true" />
+      <div className="h-[2.5px] w-full bg-[#2563eb]" aria-hidden="true" />
       <div className="flex flex-1 flex-col justify-between p-4.5 sm:p-5">
         <div>
           <h3 className="text-lg font-bold tracking-tight text-[#111827] sm:text-[19px]">
             {member.name}
           </h3>
 
-          <p className="mt-0.5 text-sm font-semibold text-[#d8003f] sm:text-[15px]">
+          <p className="mt-0.5 text-sm font-semibold text-[#2563eb] sm:text-[15px]">
             {member.role}
           </p>
         </div>
@@ -130,7 +130,7 @@ function TeamCard({
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`${member.name} on ${social.platform}`}
-              className="flex h-6 w-6 items-center justify-center rounded-full border border-[#111827] text-[#111827] transition-all duration-200 hover:border-[#d8003f] hover:bg-[#d8003f] hover:text-white sm:h-6.5 sm:w-6.5"
+              className="flex h-6 w-6 items-center justify-center rounded-full border border-[#111827] text-[#111827] transition-all duration-200 hover:border-[#2563eb] hover:bg-[#2563eb] hover:text-white sm:h-6.5 sm:w-6.5"
             >
               <svg
                 className="h-3 w-3"

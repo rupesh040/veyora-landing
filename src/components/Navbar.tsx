@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -10,29 +10,107 @@ import type { NavbarData } from "@/src/types/content";
 
 const navbar = contentData.navbar as NavbarData;
 
-function isActive(pathname: string, href: string): boolean {
-  if (href === "/") return pathname === "/";
-  return pathname === href || pathname.startsWith(href + "/");
-}
-
 export default function Navbar() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState<string>("");
 
   const { logo, navigation, cta, mobile, theme } = navbar;
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+
+      if (pathname === "/") {
+        const sections = ["contact", "team", "gallery", "process", "services", "about", "hero"];
+        const scrollPosition = window.scrollY + 220;
+
+        for (const id of sections) {
+          const el = document.getElementById(id);
+          if (el) {
+            const top = el.offsetTop;
+            if (scrollPosition >= top) {
+              setActiveSection(id);
+              break;
+            }
+          }
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [pathname]);
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith("#")) {
+      const targetId = href.slice(1);
+      if (pathname === "/" && targetId === "hero") {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        window.history.pushState(null, "", "/");
+        setActiveSection("hero");
+      } else {
+        const targetEl = document.getElementById(targetId);
+        if (targetEl) {
+          e.preventDefault();
+          targetEl.scrollIntoView({ behavior: "smooth" });
+          window.history.pushState(null, "", href);
+        }
+      }
+    }
+    setMobileOpen(false);
+  };
+
+  const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (pathname === "/") {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      window.history.pushState(null, "", "/");
+      setActiveSection("hero");
+    }
+    setMobileOpen(false);
+  };
+
+  const getItemHref = (href: string) => {
+    if (href.startsWith("#") && pathname !== "/") {
+      return `/${href}`;
+    }
+    return href;
+  };
+
+  const isItemActive = (href: string) => {
+    if (pathname !== "/") {
+      return pathname === href || pathname.startsWith(href + "/");
+    }
+    if (href.startsWith("#")) {
+      const sectionId = href.slice(1);
+      return activeSection === sectionId || (sectionId === "hero" && (activeSection === "hero" || activeSection === ""));
+    }
+    return false;
+  };
+
   return (
-    <div>
+    <div className="sticky top-0 z-50 w-full">
       <nav
         aria-label="Main navigation"
-        style={{ backgroundColor: theme.background }}
-        className="relative z-50 w-full"
+        style={{
+          backgroundColor: isScrolled ? "rgba(32, 33, 38, 0.95)" : theme.background,
+        }}
+        className={`w-full transition-all duration-300 ${
+          isScrolled
+            ? "backdrop-blur-md shadow-[0_10px_30px_rgba(0,0,0,0.25)] border-b border-white/[0.08]"
+            : "border-b border-transparent"
+        }`}
       >
         <div className="mx-auto flex h-20 max-w-[1400px] items-center justify-between px-6 lg:px-12">
           <Link
             href="/"
+            onClick={handleLogoClick}
             aria-label={logo.alt}
-            className="relative flex-shrink-0"
+            className="relative flex-shrink-0 transition-opacity duration-200 hover:opacity-90"
           >
             <Image
               src={logo.image}
@@ -40,17 +118,20 @@ export default function Navbar() {
               width={160}
               height={40}
               priority
-              className="h-16 w-auto object-contain"
+              className="h-14 sm:h-16 w-auto object-contain"
             />
           </Link>
 
           <ul className="hidden items-center gap-1 md:flex lg:gap-2">
             {navigation.map((item) => {
-              const active = isActive(pathname, item.href);
+              const active = isItemActive(item.href);
+              const href = getItemHref(item.href);
+
               return (
-                <li key={item.href}>
+                <li key={item.label}>
                   <Link
-                    href={item.href}
+                    href={href}
+                    onClick={(e) => handleNavClick(e, item.href)}
                     aria-current={active ? "page" : undefined}
                     className="group relative px-3 py-2 text-sm font-medium tracking-wide transition-colors duration-200 lg:px-4 lg:text-base"
                     style={{
@@ -59,9 +140,7 @@ export default function Navbar() {
                   >
                     <span
                       className="transition-colors duration-200 group-hover:text-white"
-                      style={
-                        active ? { color: theme.accent } : {}
-                      }
+                      style={active ? { color: theme.accent } : {}}
                     >
                       {item.label}
                     </span>
@@ -84,24 +163,27 @@ export default function Navbar() {
                 </li>
               );
             })}
-            <li className="ml-3 lg:ml-4">
-              <Link
-                href={cta.href}
-                aria-label={cta.label}
-                className="group flex items-center gap-2 rounded-sm px-5 py-2.5 text-sm font-semibold tracking-wider transition-all duration-300 hover:gap-3 lg:px-6 lg:text-base"
-                style={{
-                  backgroundColor: theme.accent,
-                  color: theme.ctaText,
-                }}
-              >
-                {cta.label}
-                <ArrowRight
-                  size={16}
-                  className="transition-transform duration-300 group-hover:translate-x-1"
-                  aria-hidden="true"
-                />
-              </Link>
-            </li>
+            {cta && (
+              <li className="ml-3 lg:ml-4">
+                <Link
+                  href={getItemHref(cta.href)}
+                  onClick={(e) => handleNavClick(e, cta.href)}
+                  aria-label={cta.label}
+                  className="group flex items-center gap-2 rounded-sm px-5 py-2.5 text-sm font-semibold tracking-wider transition-all duration-300 hover:gap-3 hover:brightness-110 lg:px-6 lg:text-base"
+                  style={{
+                    backgroundColor: theme.accent,
+                    color: theme.ctaText,
+                  }}
+                >
+                  <span>{cta.label}</span>
+                  <ArrowRight
+                    size={16}
+                    className="transition-transform duration-300 group-hover:translate-x-1"
+                    aria-hidden="true"
+                  />
+                </Link>
+              </li>
+            )}
           </ul>
 
           <button
@@ -148,13 +230,15 @@ export default function Navbar() {
         >
           <ul className="flex flex-1 flex-col gap-1 overflow-y-auto px-6 py-8">
             {navigation.map((item) => {
-              const active = isActive(pathname, item.href);
+              const active = isItemActive(item.href);
+              const href = getItemHref(item.href);
+
               return (
-                <li key={item.href}>
+                <li key={item.label}>
                   <Link
-                    href={item.href}
+                    href={href}
                     aria-current={active ? "page" : undefined}
-                    onClick={() => setMobileOpen(false)}
+                    onClick={(e) => handleNavClick(e, item.href)}
                     className="group flex items-center justify-between border-b py-4 text-lg font-medium tracking-wide transition-colors duration-200"
                     style={{
                       color: active ? theme.accent : theme.text,
@@ -175,25 +259,27 @@ export default function Navbar() {
             })}
           </ul>
 
-          <div className="px-6 pb-12">
-            <Link
-              href={cta.href}
-              onClick={() => setMobileOpen(false)}
-              aria-label={cta.label}
-              className="group flex w-full items-center justify-center gap-3 rounded-sm py-4 text-base font-semibold tracking-wider transition-all duration-300"
-              style={{
-                backgroundColor: theme.accent,
-                color: theme.ctaText,
-              }}
-            >
-              {cta.label}
-              <ArrowRight
-                size={18}
-                className="transition-transform duration-300 group-hover:translate-x-1"
-                aria-hidden="true"
-              />
-            </Link>
-          </div>
+          {cta && (
+            <div className="px-6 pb-12">
+              <Link
+                href={getItemHref(cta.href)}
+                onClick={(e) => handleNavClick(e, cta.href)}
+                aria-label={cta.label}
+                className="group flex w-full items-center justify-center gap-3 rounded-sm py-4 text-base font-semibold tracking-wider transition-all duration-300 hover:brightness-110"
+                style={{
+                  backgroundColor: theme.accent,
+                  color: theme.ctaText,
+                }}
+              >
+                <span>{cta.label}</span>
+                <ArrowRight
+                  size={18}
+                  className="transition-transform duration-300 group-hover:translate-x-1"
+                  aria-hidden="true"
+                />
+              </Link>
+            </div>
+          )}
         </nav>
       </div>
     </div>

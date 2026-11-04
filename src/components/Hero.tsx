@@ -13,8 +13,8 @@ import content from "@/src/data";
 
 const hero = content.hero;
 
-const ACCENT = hero.theme?.accent || "#D8003F";
-const BG_COLOR = hero.theme?.background || "#f8ebee";
+const ACCENT = hero.theme?.accent || "#2563EB";
+const BG_COLOR = hero.theme?.background || "#F8FAFC";
 const HEADING_COLOR = hero.theme?.headingText || "#101522";
 const BODY_COLOR = hero.theme?.bodyText || "#20242c";
 const DOTS_COLOR = hero.theme?.dots || ACCENT;
@@ -109,6 +109,7 @@ export default function Hero() {
 
   return (
     <section
+      id="hero"
       style={{ backgroundColor: BG_COLOR }}
       className="relative w-full overflow-hidden"
     >
@@ -473,7 +474,7 @@ export default function Hero() {
                 <div
                   className="pointer-events-none absolute bottom-0 left-0 right-0 z-10 h-28 sm:h-36 lg:hidden"
                   style={{
-                    background: `linear-gradient(to top, #FBEAEC 0%, #FBEAEC 10%, transparent 100%)`,
+                    background: `linear-gradient(to top, #EFF6FF 0%, #EFF6FF 10%, transparent 100%)`,
                   }}
                   aria-hidden="true"
                 />
@@ -551,8 +552,18 @@ export default function Hero() {
             >
               <Link
                 href={hero.cta.href}
+                onClick={(e) => {
+                  if (hero.cta.href.startsWith("#")) {
+                    e.preventDefault();
+                    const el = document.getElementById(hero.cta.href.slice(1));
+                    if (el) {
+                      el.scrollIntoView({ behavior: "smooth" });
+                      window.history.pushState(null, "", hero.cta.href);
+                    }
+                  }
+                }}
                 style={{ backgroundColor: ACCENT }}
-                className="group inline-flex items-center justify-center gap-4 rounded-md px-6 py-3 text-sm font-medium text-white shadow-[0_8px_30px_rgba(216,0,63,0.22)] transition-all duration-300 hover:-translate-y-1 hover:brightness-95 hover:shadow-[0_14px_40px_rgba(216,0,63,0.3)] sm:px-8 sm:py-3.5 sm:text-base lg:px-9 lg:py-4 lg:text-lg"
+                className="group inline-flex items-center justify-center gap-4 rounded-md px-6 py-3 text-sm font-medium text-white shadow-[0_8px_30px_rgba(37,99,235,0.22)] transition-all duration-300 hover:-translate-y-1 hover:brightness-95 hover:shadow-[0_14px_40px_rgba(37,99,235,0.3)] sm:px-8 sm:py-3.5 sm:text-base lg:px-9 lg:py-4 lg:text-lg"
               >
                 <span>{hero.cta.label}</span>
               </Link>

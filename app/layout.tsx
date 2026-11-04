@@ -16,8 +16,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "VEYORA",
-  description: "VEYORA – Premium agency and technology solutions.",
+  title: "VEYORA Landing",
+  description: "VEYORA Landing – Premium agency and technology solutions.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

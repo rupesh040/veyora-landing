@@ -2,21 +2,43 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowUp, ArrowUpRight, Mail, Phone } from "lucide-react";
+import { usePathname } from "next/navigation";
+import { ArrowUp, Mail, Phone } from "lucide-react";
 import contentData from "@/src/data";
 import type { FooterData } from "@/src/types/content";
 
 const footerData = contentData.footer as FooterData;
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear();
+  const pathname = usePathname();
   const theme = footerData.theme || {
     background: "#202126",
-    accent: "#d8003f",
+    accent: "#2563eb",
   };
 
   const handleScrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith("#")) {
+      if (pathname === "/") {
+        e.preventDefault();
+        const targetId = href.slice(1);
+        const targetEl = document.getElementById(targetId);
+        if (targetEl) {
+          targetEl.scrollIntoView({ behavior: "smooth" });
+          window.history.pushState(null, "", href);
+        }
+      }
+    }
+  };
+
+  const getHref = (href: string) => {
+    if (href.startsWith("#") && pathname !== "/") {
+      return `/${href}`;
+    }
+    return href;
   };
 
   return (
@@ -35,7 +57,8 @@ export default function Footer() {
         <div className="grid gap-14 sm:grid-cols-2 lg:grid-cols-[1.5fr_0.8fr_1fr_0.8fr] lg:gap-12 xl:gap-20">
           <div className="max-w-[430px]">
             <Link
-              href={footerData.brand.href}
+              href={getHref(footerData.brand.href)}
+              onClick={(e) => handleLinkClick(e, footerData.brand.href)}
               className="inline-block transition-opacity duration-200 hover:opacity-90"
               aria-label={footerData.brand.alt}
             >
@@ -56,7 +79,7 @@ export default function Footer() {
                 href={`mailto:${footerData.contact?.email || 'hello@veyora.com'}`}
                 className="group flex items-center gap-3 text-[17px] text-white/85 transition-colors duration-200 hover:text-white sm:text-[18px]"
               >
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/[0.08] transition-colors duration-200 group-hover:bg-[#d8003f]">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/[0.08] transition-colors duration-200 group-hover:bg-[#2563eb]">
                   <Mail className="h-5 w-5" />
                 </span>
                 <span>{footerData.contact?.email || 'hello@veyora.com'}</span>
@@ -66,7 +89,7 @@ export default function Footer() {
                 href={`tel:${footerData.contact?.phoneTel || '+15551234567'}`}
                 className="group flex items-center gap-3 text-[17px] transition-colors duration-200 sm:text-[18px]"
               >
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/[0.08] transition-colors duration-200 group-hover:bg-[#d8003f]">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/[0.08] transition-colors duration-200 group-hover:bg-[#2563eb]">
                   <Phone className="h-5 w-5" />
                 </span>
                 <span className="font-medium text-white transition-opacity duration-200 hover:opacity-85">
@@ -101,10 +124,13 @@ export default function Footer() {
                     );
                   }
 
+                  const href = getHref(link.href);
+
                   return (
                     <Link
                       key={link.label}
-                      href={link.href}
+                      href={href}
+                      onClick={(e) => handleLinkClick(e, link.href)}
                       className="group inline-flex w-fit items-center text-[17px] text-white/80 transition-all duration-200 hover:translate-x-1 hover:text-white sm:text-[18px]"
                     >
                       <span>{link.label}</span>

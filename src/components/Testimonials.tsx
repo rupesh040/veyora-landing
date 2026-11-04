@@ -55,9 +55,10 @@ export default function Testimonials() {
 
   return (
     <section
+      id="testimonials"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
-      className="relative overflow-hidden bg-[#faf9f7] px-4 py-8 sm:px-6 sm:py-10 md:px-10 md:py-12 lg:px-12 lg:py-14 xl:px-16 xl:py-16"
+      className="relative scroll-mt-20 overflow-hidden bg-[#faf9f7] px-4 py-8 sm:px-6 sm:py-10 md:px-10 md:py-12 lg:px-12 lg:py-14 xl:px-16 xl:py-16"
     >
       <BackgroundDecorations />
 
@@ -238,15 +239,15 @@ function Header({
       transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
       className="relative text-center"
     >
-      <div className="inline-flex rounded-full border-2 border-[#d8003f] px-6 py-2 sm:px-7">
-        <span className="text-xs font-bold uppercase tracking-[0.08em] text-[#d8003f] sm:text-sm">
+      <div className="inline-flex rounded-full border-2 border-[#2563eb] px-6 py-2 sm:px-7">
+        <span className="text-xs font-bold uppercase tracking-[0.08em] text-[#2563eb] sm:text-sm">
           {data.badge}
         </span>
       </div>
 
       <h2 className="mx-auto mt-4 max-w-[1100px] text-[56px] font-bold leading-[1.04] tracking-[-0.045em] text-[#101522] sm:mt-6">
         {data.heading.line1}{" "}
-        <span className="text-[#d8003f]">{data.heading.highlight}</span>
+        <span className="text-[#2563eb]">{data.heading.highlight}</span>
       </h2>
 
       <p className="mx-auto mt-3.5 max-w-[750px] text-[15px] leading-relaxed text-[#17191f]/85 sm:mt-5 sm:text-[17px] md:text-[19px]">
@@ -277,7 +278,7 @@ function CarouselButton({
       aria-label={
         direction === "left" ? "Previous testimonial" : "Next testimonial"
       }
-      className={`group flex h-10 w-10 sm:h-11 sm:w-11 shrink-0 items-center justify-center rounded-full border border-[#17191f]/30 bg-white/95 text-[#17191f] shadow-xs transition-all duration-300 hover:border-[#d8003f] hover:bg-[#d8003f] hover:text-white cursor-pointer active:scale-95 ${className}`}
+      className={`group flex h-10 w-10 sm:h-11 sm:w-11 shrink-0 items-center justify-center rounded-full border border-[#17191f]/30 bg-white/95 text-[#17191f] shadow-xs transition-all duration-300 hover:border-[#2563eb] hover:bg-[#2563eb] hover:text-white cursor-pointer active:scale-95 ${className}`}
     >
       {direction === "left" ? (
         <ChevronLeft
@@ -310,7 +311,7 @@ function TestimonialCard({
       className={`relative flex min-h-[390px] sm:min-h-[430px] flex-col overflow-hidden rounded-[20px] p-6 sm:p-8 md:p-9 transition-all duration-500 ${
         active
           ? "border border-black bg-[#111318] text-white shadow-[0_12px_35px_rgba(16,21,34,0.16)]"
-          : "border border-[#eadbdd] bg-white text-[#11151c] shadow-[0_10px_30px_rgba(16,21,34,0.06)]"
+          : "border border-[#dbeafe] bg-white text-[#11151c] shadow-[0_10px_30px_rgba(16,21,34,0.06)]"
       }`}
     >
       <motion.div
@@ -319,13 +320,13 @@ function TestimonialCard({
         animate={{ scale: 1, opacity: 1 }}
         transition={{ type: "spring", stiffness: 320, damping: 20 }}
         className={`text-[48px] sm:text-[56px] font-bold leading-[0.7] select-none ${
-          active ? "text-[#e00045]" : "text-[#d8003f]"
+          active ? "text-[#3b82f6]" : "text-[#2563eb]"
         }`}
       >
         “
       </motion.div>
 
-      <div className="mt-2 flex items-center gap-1.5 text-[#d8003f]">
+      <div className="mt-2 flex items-center gap-1.5 text-[#2563eb]">
         {Array.from({ length: 5 }).map((_, index) => (
           <span
             key={`star-${index}`}
@@ -418,7 +419,7 @@ function Pagination({
               layout
               animate={{
                 width: isActive ? 48 : 12,
-                backgroundColor: isActive ? "#d8003f" : "#dedbd8",
+                backgroundColor: isActive ? "#2563eb" : "#cbd5e1",
               }}
               transition={{
                 type: "spring",
@@ -447,7 +448,7 @@ function BackgroundDecorations() {
           repeat: Infinity,
           ease: "easeInOut",
         }}
-        className="pointer-events-none absolute -left-24 -top-20 h-72 w-72 rounded-full border-[32px] border-[#f4d9dc]/40 sm:h-96 sm:w-96"
+        className="pointer-events-none absolute -left-24 -top-20 h-72 w-72 rounded-full border-[32px] border-[#dbeafe]/50 sm:h-96 sm:w-96"
       />
 
       <motion.div
@@ -460,7 +461,7 @@ function BackgroundDecorations() {
           repeat: Infinity,
           ease: "easeInOut",
         }}
-        className="pointer-events-none absolute -bottom-20 -right-20 h-64 w-64 rounded-full border-[28px] border-[#f4d9dc]/30 sm:h-80 sm:w-80"
+        className="pointer-events-none absolute -bottom-20 -right-20 h-64 w-64 rounded-full border-[28px] border-[#dbeafe]/40 sm:h-80 sm:w-80"
       />
 
       <div className="pointer-events-none absolute left-0 top-0 opacity-40">
@@ -505,7 +506,7 @@ function DotPattern() {
             cx={column * 18 + 3}
             cy={row * 18 + 3}
             r="1.5"
-            fill="#d8003f"
+            fill="#2563eb"
             opacity={0.18 + ((row + column) % 3) * 0.05}
           />
         );

@@ -21,7 +21,7 @@ export default function ProcessSection() {
   const [activeStep, setActiveStep] = useState(2);
 
   return (
-    <section className="relative overflow-hidden bg-[#fcfaf8] px-5 py-4 sm:px-8 sm:py-8 md:px-10 lg:px-12 lg:py-12 xl:px-16 xl:py-14">
+    <section id="process" className="relative scroll-mt-20 overflow-hidden bg-[#fcfaf8] px-5 py-8 sm:px-8 sm:py-10 md:px-10 lg:px-12 lg:py-14 xl:px-16 xl:py-16">
       <div className="mx-auto max-w-[1200px]">
         <Header data={data} />
 
@@ -75,9 +75,9 @@ function Header({ data }: { data: any }) {
           duration: 0.6,
           delay: 0.1,
         }}
-        className="inline-flex rounded-full border-2 border-[#d8003f] px-6 py-2 sm:px-7"
+        className="inline-flex rounded-full border-2 border-[#2563eb] px-6 py-2 sm:px-7"
       >
-        <span className="text-xs font-bold uppercase tracking-[0.08em] text-[#d8003f] sm:text-sm">
+        <span className="text-xs font-bold uppercase tracking-[0.08em] text-[#2563eb] sm:text-sm">
           {data.badge}
         </span>
       </motion.div>
@@ -100,7 +100,7 @@ function Header({ data }: { data: any }) {
       >
         {data.headingStart}
         <br className="hidden sm:block" />{" "}
-        <span className="text-[#d8003f]">{data.headingHighlight}</span>
+        <span className="text-[#2563eb]">{data.headingHighlight}</span>
       </motion.h2>
 
       <motion.p
@@ -136,7 +136,7 @@ function ProgressLine({
       {/* Horizontal Line for Large Screens */}
       <div className="pointer-events-none absolute left-[12.5%] right-[12.5%] top-[37px] hidden h-[3px] bg-[#d7d7d7] lg:block">
         <motion.div
-          className="absolute left-0 top-0 h-full bg-[#d8003f]"
+          className="absolute left-0 top-0 h-full bg-[#2563eb]"
           animate={{
             width: progress,
           }}
@@ -150,7 +150,7 @@ function ProgressLine({
       {/* Vertical Line for Mobile Screens (1 column) */}
       <div className="pointer-events-none absolute bottom-[15%] left-[33px] top-[34px] block w-[2px] bg-[#d7d7d7] sm:hidden">
         <motion.div
-          className="absolute left-0 top-0 w-full bg-[#d8003f]"
+          className="absolute left-0 top-0 w-full bg-[#2563eb]"
           animate={{
             height: progress,
           }}
@@ -211,7 +211,7 @@ function ProcessStep({
             animate={{
               scale: isActive ? 1.08 : 1,
               backgroundColor: isActive
-                ? "#d8003f"
+                ? "#2563eb"
                 : "#fcfaf8",
               color: isActive ? "#ffffff" : "#101522",
             }}
@@ -248,8 +248,8 @@ function ProcessStep({
               }}
               className={`flex h-16 w-16 shrink-0 items-center justify-center rounded-full ${
                 isActive
-                  ? "bg-[#d8003f] text-white"
-                  : "text-[#c9003b]"
+                  ? "bg-[#2563eb] text-white"
+                  : "text-[#2563eb]"
               }`}
             >
               <Icon
