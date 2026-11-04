@@ -133,7 +133,6 @@ function ProgressLine({
 
   return (
     <>
-      {/* Horizontal Line for Large Screens */}
       <div className="pointer-events-none absolute left-[12.5%] right-[12.5%] top-[37px] hidden h-[3px] bg-[#d7d7d7] lg:block">
         <motion.div
           className="absolute left-0 top-0 h-full bg-[#2563eb]"
@@ -147,7 +146,6 @@ function ProgressLine({
         />
       </div>
 
-      {/* Vertical Line for Mobile Screens (1 column) */}
       <div className="pointer-events-none absolute bottom-[15%] left-[33px] top-[34px] block w-[2px] bg-[#d7d7d7] sm:hidden">
         <motion.div
           className="absolute left-0 top-0 w-full bg-[#2563eb]"

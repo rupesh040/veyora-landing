@@ -44,6 +44,29 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [pathname]);
 
+  useEffect(() => {
+    if (mobileOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setMobileOpen(false);
+      }
+    };
+
+    if (mobileOpen) {
+      window.addEventListener("keydown", handleKeyDown);
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [mobileOpen]);
+
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     if (href.startsWith("#")) {
       const targetId = href.slice(1);
@@ -196,9 +219,9 @@ export default function Navbar() {
             style={{ color: theme.text }}
           >
             {mobileOpen ? (
-              <X size={24} aria-hidden="true" />
+              <X size={26} aria-hidden="true" />
             ) : (
-              <Menu size={24} aria-hidden="true" />
+              <Menu size={26} aria-hidden="true" />
             )}
           </button>
         </div>
@@ -209,26 +232,45 @@ export default function Navbar() {
         role="dialog"
         aria-label="Mobile navigation"
         aria-modal="true"
-        className={`fixed inset-0 z-40 flex flex-col transition-all duration-300 md:hidden ${
+        className={`fixed inset-0 z-[100] flex flex-col transition-all duration-300 md:hidden ${
           mobileOpen
             ? "pointer-events-auto opacity-100"
             : "pointer-events-none opacity-0"
         }`}
+        style={{ backgroundColor: theme.background }}
       >
-        <div
-          className="absolute inset-0"
-          style={{ backgroundColor: theme.background }}
-          onClick={() => setMobileOpen(false)}
-          aria-hidden="true"
-        />
+        <div className="flex h-20 items-center justify-between px-6 border-b border-white/[0.08]">
+          <Link
+            href="/"
+            onClick={handleLogoClick}
+            aria-label={logo.alt}
+            className="relative flex-shrink-0"
+          >
+            <Image
+              src={logo.image}
+              alt={logo.alt}
+              width={160}
+              height={40}
+              priority
+              className="h-14 sm:h-16 w-auto object-contain"
+            />
+          </Link>
+
+          <button
+            type="button"
+            onClick={() => setMobileOpen(false)}
+            aria-label={mobile.closeLabel || "Close menu"}
+            className="flex h-11 w-11 cursor-pointer items-center justify-center rounded-full border border-white/15 bg-white/10 text-white transition-all duration-200 hover:bg-white/20 hover:border-white/30 active:scale-95"
+          >
+            <X size={24} aria-hidden="true" />
+          </button>
+        </div>
 
         <nav
-          aria-label="Mobile menu"
-          className={`relative flex h-full flex-col pt-20 transition-transform duration-300 ${
-            mobileOpen ? "translate-x-0" : "-translate-x-full"
-          }`}
+          aria-label="Mobile menu links"
+          className="relative flex flex-1 flex-col overflow-y-auto"
         >
-          <ul className="flex flex-1 flex-col gap-1 overflow-y-auto px-6 py-8">
+          <ul className="flex flex-1 flex-col gap-1 px-6 py-6">
             {navigation.map((item) => {
               const active = isItemActive(item.href);
               const href = getItemHref(item.href);
@@ -248,7 +290,7 @@ export default function Navbar() {
                     <span>{item.label}</span>
                     {active && (
                       <span
-                        className="h-1.5 w-1.5 rounded-full"
+                        className="h-2 w-2 rounded-full"
                         style={{ backgroundColor: theme.accent }}
                         aria-hidden="true"
                       />
@@ -260,7 +302,7 @@ export default function Navbar() {
           </ul>
 
           {cta && (
-            <div className="px-6 pb-12">
+            <div className="px-6 pb-10 pt-4">
               <Link
                 href={getItemHref(cta.href)}
                 onClick={(e) => handleNavClick(e, cta.href)}

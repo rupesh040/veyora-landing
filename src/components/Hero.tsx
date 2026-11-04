@@ -113,7 +113,7 @@ export default function Hero() {
       style={{ backgroundColor: BG_COLOR }}
       className="relative w-full overflow-hidden"
     >
-      <div className="relative mx-auto overflow-hidden px-5 py-8 sm:px-8 sm:py-12 lg:px-12 lg:py-16 xl:px-20">
+      <div className="relative mx-auto overflow-hidden px-5 py-4 sm:px-8  lg:px-12  xl:px-20">
         <motion.div
           suppressHydrationWarning
           className="pointer-events-none absolute -right-[10%] top-[12%] z-0 h-[500px] w-[500px] rounded-full blur-[2px] sm:h-[680px] sm:w-[680px] lg:h-[760px] lg:w-[760px]"
@@ -490,16 +490,6 @@ export default function Hero() {
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
               className="mb-5 flex items-center gap-3.5 sm:mb-7 sm:gap-4"
             >
-              <div className="relative h-12 w-12 shrink-0 sm:h-14 sm:w-14">
-                <Image
-                  src={hero.logo.image}
-                  alt={hero.logo.alt}
-                  fill
-                  className="object-contain"
-                  sizes="56px"
-                />
-              </div>
-
               <span
                 style={{ color: ACCENT }}
                 className="text-sm font-medium sm:text-base md:text-lg"

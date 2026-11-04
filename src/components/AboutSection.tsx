@@ -16,7 +16,7 @@ const iconMap: Record<string, any> = {
 
 export default function AboutSection() {
   return (
-    <section id="about" className="relative w-full scroll-mt-20 overflow-hidden bg-[#faf9f7] px-5 py-8 sm:px-8 sm:py-10 md:px-10 md:py-12 lg:px-12 lg:py-16 xl:px-16">
+    <section id="about" className="relative w-full scroll-mt-20 overflow-hidden bg-[#faf9f7] px-5 py-4 sm:px-8  md:px-10  lg:px-12  xl:px-16">
       <div className="relative z-10 mx-auto grid max-w-[1500px] grid-cols-1 items-start gap-12 lg:grid-cols-[54%_46%] lg:gap-8 xl:gap-12">
         <PinterestGallery />
         <AboutContent />
