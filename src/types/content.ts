@@ -7,15 +7,20 @@ export interface NavbarData {
   logo: {
     image: string;
     alt: string;
+    href?: string;
+    width?: number;
+    height?: number;
   };
   navigation: NavbarItem[];
-  cta: {
+  cta?: {
     label: string;
     href: string;
+    showIcon?: boolean;
   };
   mobile: {
     menuLabel: string;
     closeLabel: string;
+    ariaLabel?: string;
   };
   theme: {
     background: string;
@@ -23,6 +28,8 @@ export interface NavbarData {
     mutedText: string;
     accent: string;
     ctaText: string;
+    scrolledBackground?: string;
+    borderColor?: string;
   };
 }
 

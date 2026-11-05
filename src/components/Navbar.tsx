@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState, useMemo } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -8,29 +8,135 @@ import { ArrowRight, Menu, X } from "lucide-react";
 import contentData from "@/src/data";
 import type { NavbarData } from "@/src/types/content";
 
-const navbar = contentData.navbar as NavbarData;
+export interface NavbarProps {
+  data?: NavbarData;
+}
 
-export default function Navbar() {
+function hexToRgba(hex: string, alpha: number): string {
+  if (!hex || !hex.startsWith("#")) return hex || "rgba(32, 33, 38, 0.95)";
+  const cleanHex = hex.replace("#", "");
+  const normalized =
+    cleanHex.length === 3
+      ? cleanHex
+          .split("")
+          .map((c) => c + c)
+          .join("")
+      : cleanHex;
+  const num = parseInt(normalized, 16);
+  if (isNaN(num)) return hex;
+  const r = (num >> 16) & 255;
+  const g = (num >> 8) & 255;
+  const b = num & 255;
+  return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+}
+
+export default function Navbar({ data }: NavbarProps = {}) {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState<string>("");
+  const isClickScrolling = useRef(false);
+  const clickTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-  const { logo, navigation, cta, mobile, theme } = navbar;
+  const navbar = data || (contentData.navbar as NavbarData);
+  const {
+    logo = {
+      image: "/logo/v-blue-logo.webp",
+      alt: "VEYORA",
+      href: "/",
+      width: 160,
+      height: 40,
+    },
+    navigation = [],
+    cta,
+    mobile = {
+      menuLabel: "Menu",
+      closeLabel: "Close",
+    },
+    theme = {
+      background: "#202126",
+      text: "#FFFFFF",
+      mutedText: "#E5E5E5",
+      accent: "#2563EB",
+      ctaText: "#FFFFFF",
+    },
+  } = navbar;
+
+  const logoHref = logo.href || "/";
+  const logoWidth = logo.width || 160;
+  const logoHeight = logo.height || 40;
+  const menuLabel = mobile.menuLabel || "Menu";
+  const closeLabel = mobile.closeLabel || "Close";
+  const scrolledBg =
+    theme.scrolledBackground || hexToRgba(theme.background, 0.95);
+  const borderColor = theme.borderColor || "rgba(255, 255, 255, 0.08)";
+
+  const { firstSectionId, lastSectionId, scrollCheckSections, hashSectionIds } =
+    useMemo(() => {
+      const navIds = navigation
+        .filter((item) => item.href.startsWith("#"))
+        .map((item) => item.href.slice(1));
+      const ctaId =
+        cta?.href?.startsWith("#") ? cta.href.slice(1) : undefined;
+
+      const allIds = [...navIds, ...(ctaId ? [ctaId] : [])].filter(Boolean);
+      const first = navIds[0] || "hero";
+      const last = ctaId || navIds[navIds.length - 1] || "contact";
+
+      const checkSections = [...allIds].reverse();
+
+      return {
+        firstSectionId: first,
+        lastSectionId: last,
+        scrollCheckSections: checkSections,
+        hashSectionIds: allIds,
+      };
+    }, [navigation, cta]);
 
   useEffect(() => {
+    if (typeof window !== "undefined" && window.location.hash) {
+      const hash = window.location.hash.slice(1);
+      const matched = hashSectionIds.find(
+        (id) =>
+          id === hash ||
+          (id === "reviews" && hash === "testimonials") ||
+          (id === "testimonials" && hash === "reviews")
+      );
+      if (matched) {
+        setActiveSection(matched);
+      } else if (hash) {
+        setActiveSection(hash);
+      }
+    }
+
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
 
-      if (pathname === "/") {
-        const sections = ["contact", "team", "gallery", "process", "services", "about", "hero"];
-        const scrollPosition = window.scrollY + 220;
+      if (isClickScrolling.current) return;
 
-        for (const id of sections) {
-          const el = document.getElementById(id);
+      if (pathname === "/") {
+        if (window.scrollY < 80) {
+          setActiveSection(firstSectionId);
+          return;
+        }
+
+        const scrollBottom = window.innerHeight + window.scrollY;
+        if (scrollBottom >= document.documentElement.scrollHeight - 50) {
+          setActiveSection(lastSectionId);
+          return;
+        }
+
+        const threshold = 180;
+
+        for (const id of scrollCheckSections) {
+          const el =
+            document.getElementById(id) ||
+            (id === "reviews" ? document.getElementById("testimonials") : null) ||
+            (id === "testimonials" ? document.getElementById("reviews") : null);
+
           if (el) {
-            const top = el.offsetTop;
-            if (scrollPosition >= top) {
+            const rect = el.getBoundingClientRect();
+            if (rect.top <= threshold) {
               setActiveSection(id);
               break;
             }
@@ -41,8 +147,17 @@ export default function Navbar() {
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [pathname]);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (clickTimeoutRef.current) clearTimeout(clickTimeoutRef.current);
+    };
+  }, [
+    pathname,
+    firstSectionId,
+    lastSectionId,
+    scrollCheckSections,
+    hashSectionIds,
+  ]);
 
   useEffect(() => {
     if (mobileOpen) {
@@ -50,7 +165,6 @@ export default function Navbar() {
     } else {
       document.body.style.overflow = "";
     }
-
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
         setMobileOpen(false);
@@ -67,18 +181,42 @@ export default function Navbar() {
     };
   }, [mobileOpen]);
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => {
     if (href.startsWith("#")) {
-      const targetId = href.slice(1);
-      if (pathname === "/" && targetId === "hero") {
+      const rawTargetId = href.slice(1);
+      const targetId =
+        rawTargetId === "testimonials" && !document.getElementById("testimonials")
+          ? "reviews"
+          : rawTargetId;
+
+      if (pathname === "/" && (targetId === firstSectionId || targetId === "hero")) {
         e.preventDefault();
+        setActiveSection(firstSectionId);
+        isClickScrolling.current = true;
+        if (clickTimeoutRef.current) clearTimeout(clickTimeoutRef.current);
+        clickTimeoutRef.current = setTimeout(() => {
+          isClickScrolling.current = false;
+        }, 800);
         window.scrollTo({ top: 0, behavior: "smooth" });
         window.history.pushState(null, "", "/");
-        setActiveSection("hero");
       } else {
-        const targetEl = document.getElementById(targetId);
+        const targetEl =
+          document.getElementById(targetId) ||
+          (targetId === "reviews" ? document.getElementById("testimonials") : null) ||
+          (targetId === "testimonials" ? document.getElementById("reviews") : null);
+
         if (targetEl) {
           e.preventDefault();
+          setActiveSection(targetId);
+          isClickScrolling.current = true;
+          if (clickTimeoutRef.current) clearTimeout(clickTimeoutRef.current);
+          clickTimeoutRef.current = setTimeout(() => {
+            isClickScrolling.current = false;
+          }, 800);
+
           targetEl.scrollIntoView({ behavior: "smooth" });
           window.history.pushState(null, "", href);
         }
@@ -88,11 +226,19 @@ export default function Navbar() {
   };
 
   const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    if (pathname === "/") {
+    if (
+      pathname === "/" &&
+      (logoHref === "/" || logoHref === `#${firstSectionId}` || logoHref === "#hero")
+    ) {
       e.preventDefault();
+      setActiveSection(firstSectionId);
+      isClickScrolling.current = true;
+      if (clickTimeoutRef.current) clearTimeout(clickTimeoutRef.current);
+      clickTimeoutRef.current = setTimeout(() => {
+        isClickScrolling.current = false;
+      }, 800);
       window.scrollTo({ top: 0, behavior: "smooth" });
       window.history.pushState(null, "", "/");
-      setActiveSection("hero");
     }
     setMobileOpen(false);
   };
@@ -110,27 +256,45 @@ export default function Navbar() {
     }
     if (href.startsWith("#")) {
       const sectionId = href.slice(1);
-      return activeSection === sectionId || (sectionId === "hero" && (activeSection === "hero" || activeSection === ""));
+      const normalizedSectionId =
+        sectionId === "testimonials" ? "reviews" : sectionId;
+      const normalizedActive =
+        activeSection === "testimonials" ? "reviews" : activeSection;
+
+      if (normalizedSectionId === firstSectionId) {
+        return normalizedActive === firstSectionId || normalizedActive === "";
+      }
+      return normalizedActive === normalizedSectionId;
     }
     return false;
   };
 
+  const cssVariables = {
+    "--nav-bg": theme.background,
+    "--nav-text": theme.text,
+    "--nav-muted": theme.mutedText,
+    "--nav-accent": theme.accent,
+    "--nav-cta-text": theme.ctaText,
+    "--nav-border": borderColor,
+  } as React.CSSProperties;
+
   return (
-    <div className="sticky top-0 z-50 w-full">
+    <div className="sticky top-0 z-50 w-full" style={cssVariables}>
       <nav
         aria-label="Main navigation"
         style={{
-          backgroundColor: isScrolled ? "rgba(32, 33, 38, 0.95)" : theme.background,
+          backgroundColor: isScrolled ? scrolledBg : theme.background,
+          borderBottomColor: isScrolled ? borderColor : "transparent",
         }}
         className={`w-full transition-all duration-300 ${
           isScrolled
-            ? "backdrop-blur-md shadow-[0_10px_30px_rgba(0,0,0,0.25)] border-b border-white/[0.08]"
+            ? "backdrop-blur-md shadow-[0_10px_30px_rgba(0,0,0,0.25)] border-b"
             : "border-b border-transparent"
         }`}
       >
         <div className="mx-auto flex h-20 max-w-[1400px] items-center justify-between px-6 lg:px-12">
           <Link
-            href="/"
+            href={logoHref}
             onClick={handleLogoClick}
             aria-label={logo.alt}
             className="relative flex-shrink-0 transition-opacity duration-200 hover:opacity-90"
@@ -138,8 +302,8 @@ export default function Navbar() {
             <Image
               src={logo.image}
               alt={logo.alt}
-              width={160}
-              height={40}
+              width={logoWidth}
+              height={logoHeight}
               priority
               className="h-14 sm:h-16 w-auto object-contain"
             />
@@ -162,7 +326,7 @@ export default function Navbar() {
                     }}
                   >
                     <span
-                      className="transition-colors duration-200 group-hover:text-white"
+                      className="transition-colors duration-200 group-hover:[color:var(--nav-text)]"
                       style={active ? { color: theme.accent } : {}}
                     >
                       {item.label}
@@ -186,7 +350,7 @@ export default function Navbar() {
                 </li>
               );
             })}
-            {cta && (
+            {cta && cta.label && (
               <li className="ml-3 lg:ml-4">
                 <Link
                   href={getItemHref(cta.href)}
@@ -199,11 +363,13 @@ export default function Navbar() {
                   }}
                 >
                   <span>{cta.label}</span>
-                  <ArrowRight
-                    size={16}
-                    className="transition-transform duration-300 group-hover:translate-x-1"
-                    aria-hidden="true"
-                  />
+                  {cta.showIcon !== false && (
+                    <ArrowRight
+                      size={16}
+                      className="transition-transform duration-300 group-hover:translate-x-1"
+                      aria-hidden="true"
+                    />
+                  )}
                 </Link>
               </li>
             )}
@@ -211,7 +377,7 @@ export default function Navbar() {
 
           <button
             type="button"
-            aria-label={mobileOpen ? mobile.closeLabel : mobile.menuLabel}
+            aria-label={mobileOpen ? closeLabel : menuLabel}
             aria-expanded={mobileOpen}
             aria-controls="mobile-menu"
             onClick={() => setMobileOpen((prev) => !prev)}
@@ -239,9 +405,12 @@ export default function Navbar() {
         }`}
         style={{ backgroundColor: theme.background }}
       >
-        <div className="flex h-20 items-center justify-between px-6 border-b border-white/[0.08]">
+        <div
+          className="flex h-20 items-center justify-between px-6 border-b"
+          style={{ borderBottomColor: borderColor }}
+        >
           <Link
-            href="/"
+            href={logoHref}
             onClick={handleLogoClick}
             aria-label={logo.alt}
             className="relative flex-shrink-0"
@@ -249,8 +418,8 @@ export default function Navbar() {
             <Image
               src={logo.image}
               alt={logo.alt}
-              width={160}
-              height={40}
+              width={logoWidth}
+              height={logoHeight}
               priority
               className="h-14 sm:h-16 w-auto object-contain"
             />
@@ -259,8 +428,13 @@ export default function Navbar() {
           <button
             type="button"
             onClick={() => setMobileOpen(false)}
-            aria-label={mobile.closeLabel || "Close menu"}
-            className="flex h-11 w-11 cursor-pointer items-center justify-center rounded-full border border-white/15 bg-white/10 text-white transition-all duration-200 hover:bg-white/20 hover:border-white/30 active:scale-95"
+            aria-label={closeLabel}
+            className="flex h-11 w-11 cursor-pointer items-center justify-center rounded-full border transition-all duration-200 hover:brightness-125 active:scale-95"
+            style={{
+              borderColor: borderColor,
+              backgroundColor: "rgba(255, 255, 255, 0.1)",
+              color: theme.text,
+            }}
           >
             <X size={24} aria-hidden="true" />
           </button>
@@ -284,7 +458,7 @@ export default function Navbar() {
                     className="group flex items-center justify-between border-b py-4 text-lg font-medium tracking-wide transition-colors duration-200"
                     style={{
                       color: active ? theme.accent : theme.text,
-                      borderColor: "rgba(255,255,255,0.08)",
+                      borderColor: borderColor,
                     }}
                   >
                     <span>{item.label}</span>
@@ -301,7 +475,7 @@ export default function Navbar() {
             })}
           </ul>
 
-          {cta && (
+          {cta && cta.label && (
             <div className="px-6 pb-10 pt-4">
               <Link
                 href={getItemHref(cta.href)}
@@ -314,11 +488,13 @@ export default function Navbar() {
                 }}
               >
                 <span>{cta.label}</span>
-                <ArrowRight
-                  size={18}
-                  className="transition-transform duration-300 group-hover:translate-x-1"
-                  aria-hidden="true"
-                />
+                {cta.showIcon !== false && (
+                  <ArrowRight
+                    size={18}
+                    className="transition-transform duration-300 group-hover:translate-x-1"
+                    aria-hidden="true"
+                  />
+                )}
               </Link>
             </div>
           )}

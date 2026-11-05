@@ -14,7 +14,7 @@ export default function Services() {
   return (
     <section
       id="services"
-      className="relative w-full scroll-mt-20 overflow-hidden bg-[#faf9f7] px-5 py-12 sm:px-8 sm:py-16 md:px-10 lg:px-16 lg:py-20 xl:px-20"
+      className="relative w-full scroll-mt-20 overflow-hidden bg-[#faf9f7] px-5 py-6 sm:px-8  md:px-10 lg:px-16  xl:px-20"
     >
       <div className="relative z-10 mx-auto max-w-[1440px]">
         <div className="mb-10 flex flex-col gap-6 lg:mb-14 lg:flex-row lg:items-end lg:justify-between">

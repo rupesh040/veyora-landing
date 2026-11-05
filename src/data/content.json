@@ -6,7 +6,10 @@
           "VeyoraHeader1": {
             "logo": {
               "image": "/logo/v-blue-logo.webp",
-              "alt": "VEYORA"
+              "alt": "VEYORA",
+              "href": "/",
+              "width": 160,
+              "height": 40
             },
             "navigation": [
               {
@@ -26,17 +29,18 @@
                 "href": "#process"
               },
               {
-                "label": "Work",
-                "href": "#gallery"
-              },
-              {
                 "label": "Team",
                 "href": "#team"
+              },
+              {
+                "label": "Reviews",
+                "href": "#reviews"
               }
             ],
             "cta": {
               "label": "Contact",
-              "href": "#contact"
+              "href": "#contact",
+              "showIcon": true
             },
             "mobile": {
               "menuLabel": "Menu",
@@ -47,7 +51,9 @@
               "text": "#FFFFFF",
               "mutedText": "#E5E5E5",
               "accent": "#2563EB",
-              "ctaText": "#FFFFFF"
+              "ctaText": "#FFFFFF",
+              "scrolledBackground": "rgba(32, 33, 38, 0.95)",
+              "borderColor": "rgba(255, 255, 255, 0.08)"
             }
           }
         }
@@ -119,18 +125,14 @@
             "headingStart": "Creative Services Built for\n",
             "headingHighlight": "Bold Brands",
             "button": {
-              "text": "View Our Work",
-              "link": "#gallery"
+              "text": "Contact Us",
+              "link": "#contact"
             },
             "cardBadge": "Services Detail",
             "cardHeadingStart": "Services ",
             "cardHeadingHighlight": "Detail",
             "cardDescription": "Explore the specialized services we offer to help your brand grow, engage audiences, and build lasting impressions.",
             "cardButtonText": "View Details",
-            "images": {
-              "main": "/about/about-1.webp",
-              "secondary": "/service.webp"
-            },
             "services": [
               {
                 "title": "Brand Strategy",
@@ -231,54 +233,6 @@
             "ctaText": "Have a project in mind?",
             "ctaButtonText": "Start the Process",
             "ctaButtonLink": "/contact"
-          }
-        }
-      },
-      "Gallery": {
-        "variants": {
-          "VeyoraGallery1": {
-            "badge": "Gallery",
-            "headingStart": "A Gallery of Ideas ",
-            "headingHighlight": "Brought to Life",
-            "description": "Explore the moments, details, and creative work behind every project.",
-            "galleryItems": [
-              {
-                "title": "Brand Identity",
-                "image": "/about/about-1.webp"
-              },
-              {
-                "title": "Packaging Design",
-                "image": "/about/about-2.webp"
-              },
-              {
-                "title": "Digital Experience",
-                "image": "/about/about-3.webp"
-              },
-              {
-                "title": "Campaign Creative",
-                "image": "/about/about-1.webp"
-              },
-              {
-                "title": "Brand Guidelines",
-                "image": "/about/about-2.webp"
-              },
-              {
-                "title": "Creative Direction",
-                "image": "/about/about-3.webp"
-              },
-              {
-                "title": "Social Campaign",
-                "image": "/about/about-1.webp"
-              },
-              {
-                "title": "Environmental Design",
-                "image": "/about/about-2.webp"
-              },
-              {
-                "title": "Editorial Design",
-                "image": "/about/about-3.webp"
-              }
-            ]
           }
         }
       },
@@ -527,16 +481,12 @@
                     "href": "#process"
                   },
                   {
-                    "label": "Work",
-                    "href": "#gallery"
-                  },
-                  {
                     "label": "Team",
                     "href": "#team"
                   },
                   {
-                    "label": "Testimonials",
-                    "href": "#testimonials"
+                    "label": "Reviews",
+                    "href": "#reviews"
                   },
                   {
                     "label": "Contact",

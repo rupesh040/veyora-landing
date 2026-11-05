@@ -11,7 +11,7 @@ export default function OurTeam() {
   if (!teamData) return null;
 
   return (
-    <section id="team" className="relative scroll-mt-20 overflow-hidden bg-white px-4 py-8 sm:px-6 sm:py-10 md:px-8 md:py-12 lg:px-12 lg:py-14 xl:px-16">
+    <section id="team" className="relative scroll-mt-20 overflow-hidden bg-white px-4 py-6 sm:px-6  md:px-8  lg:px-12  xl:px-16">
       <div className="mx-auto max-w-[1450px]">
         <Header
           badge={teamData.badge}

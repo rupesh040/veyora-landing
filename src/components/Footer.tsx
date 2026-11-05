@@ -25,7 +25,10 @@ export default function Footer() {
       if (pathname === "/") {
         e.preventDefault();
         const targetId = href.slice(1);
-        const targetEl = document.getElementById(targetId);
+        const targetEl =
+          document.getElementById(targetId) ||
+          (targetId === "reviews" ? document.getElementById("testimonials") : null) ||
+          (targetId === "testimonials" ? document.getElementById("reviews") : null);
         if (targetEl) {
           targetEl.scrollIntoView({ behavior: "smooth" });
           window.history.pushState(null, "", href);

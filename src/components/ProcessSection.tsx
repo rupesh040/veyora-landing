@@ -21,7 +21,7 @@ export default function ProcessSection() {
   const [activeStep, setActiveStep] = useState(2);
 
   return (
-    <section id="process" className="relative scroll-mt-20 overflow-hidden bg-[#fcfaf8] px-5 py-8 sm:px-8 sm:py-10 md:px-10 lg:px-12 lg:py-14 xl:px-16 xl:py-16">
+    <section id="process" className="relative scroll-mt-20 overflow-hidden bg-[#fcfaf8] px-5 py-6 sm:px-8  md:px-10 lg:px-12  xl:px-16 ">
       <div className="mx-auto max-w-[1200px]">
         <Header data={data} />
 
